@@ -6,7 +6,7 @@
 1. 기본적인 라이브러리 = include <stdio.h>   <- io는 입출력이란 뜻, 즉, printf 함수 포함   
 2. **첫 시작코드 = int main(void) { } = 스크래치의 깃발클릭 블록** 
 3. printf = 형식화된(f) 문자를 출력(print)한다.  
-4. ; = 마침표  
+4. ; = 마침표, 실행문 뒤에 사용, 조건문 if나 반복문 while 뒤에는 X  
 5.  printf("hello, world");   = hello, world 출력   
 
 </br>   
@@ -51,8 +51,41 @@ $ = 프롬프트/쉘이라고 부르며 입력하라는 표시
 2. %s -> 형식 지정자   
 3. printf 함수의 " " 사이에 형식지정자가 있다면 쉼표와 변수명을 같이 입력하여 어디서 값을 가져올지 지정    
 4. printf("hello,%s,%s\n",answer1,answer2); -> 변수 두 개를 왼쪽부터 오른쪽으로 순서대로 지정   
+</br>   
 
+##### 구문 설탕 = 기능 추가 X, 기존 기능을 보기 좋고 간결하게 활용   
+int counter = 0;   
+counter = counter + 1; 　　-> 　　counter += 1; 　　->  　　counter ++;   
 
+</br>   
+
+### --조건문    
+#### 1. 조건 2개   
+##### if ( 조건 ) 
+{ 실행문 ex) printf함수 등 ;　}　   　        
+##### else   
+{ 실행문 ex) printf함수 등 ;　}　        
+#### 2. 조건 3개    
+##### if ( 조건 ) 
+{ 실행문 ex) printf함수 등 ;　}　   　        
+##### else if ( 조건 )     
+{ 실행문 ex) printf함수 등 ;　}　        
+##### else if ( 조건 ) 또는 else      
+{ 실행문 ex) printf함수 등 ;　}   
+</br>   
+
+### --루프    
+#### 1. 무한 루프   
+##### while (true)   
+{ 실행문 ex) printf함수 등 ;　}     
+#### 2-1. n번 반복 while 루프   
+###### int i = 0;   
+##### while (i < n)   
+###### { 실행문 ex) printf함수 등 ;　   
+##### 　i++; }     
+#### 2-2. n번 반복 for 루프   
+##### for (int i = 0; i < 50; i++)　　　　<- for(변수지정; 계속 물어볼 불리안 표현; 변수 수정방법)       
+##### { 실행문 ex) printf함수 등 ;　}   
 
 
 
