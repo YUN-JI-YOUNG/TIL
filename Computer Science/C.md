@@ -4,9 +4,10 @@
 코드 작성 환경 : [CS50 샌드박스](sandbox.cs50.io)   = 리눅스로 돌아가는 클라우드 기반의 환경   </br>   
 
 1. 기본적인 라이브러리 = include <stdio.h>   <- io는 입출력이란 뜻, 즉, printf 함수 포함   
-2. **첫 시작코드 = int main(void) { } = 스크래치의 깃발클릭 블록** 
-3. printf = 형식화된(f) 문자를 출력(print)한다.    
-4.  printf("hello, world");   = hello, world 출력   
+2. **첫 시작코드 = int main(void) { } = 스크래치의 깃발클릭 블록**   
+3. (출력형태) main (입력형태) -> int main(void) = 출력형태는 int, 입력형태는 void 즉, 입력은 없다는 뜻     
+4. printf = 형식화된(f) 문자를 출력(print)한다.    
+5.  printf("hello, world");   = hello, world 출력   
 
 </br>   
 
@@ -108,6 +109,34 @@ counter = counter + 1; 　　-> 　　counter += 1; 　　->  　　counter ++;
 #### 2-2. n번 반복 for 루프   
 ##### for (int i = 0; i < 50; i++)　　　　<- for(변수지정; 계속 물어볼 불리안 표현; 변수 수정방법)       
 ##### { 실행문 ex) printf함수 등 ;　}   
+#### 3. do-while 루프 　　　　　　　<- while, for루프와 달리 무조건 한 번은 실행한 후 불리언 표현이 참일 때 반복 결정     
+##### int n;   
+##### do   
+##### { n = 실행문 ; }   
+##### while (불리언 표현) ;   
+##### return n;   또는 for (int i=0; i < n; i++) + printf("\n"); 등 　　　　　<- printf("\n"); 는 새로운 한 줄 출력     
+#### 4. 중첩 루프 　　　　　　　<- 2차원 행/열 구현 가능, n x n 블록    
+##### do-while 루프   
+##### for (int i=0; i < n; i++)   
+##### { for (int j=0; j < n; j++)   
+##### 　　{ 실행문 ; }   
+##### 　　　printf("\n") ;   　　　}
+</br>   
+
+### --사용자 정의 함수   
+#### (1) void (함수명)(void) 　　　　　<- 입력 값이 없는 정의 함수의 프로토타입     
+##### void = get_string 등의 함수와 달리 값을 반환하지 않는다. 즉, 값을 입력하지 않는다.         
+1.  void (함수명)(void) 　　　　　<- 함수 정의/ 추상화의 개념        
+   { 실행문 ex> printf 함수 등 ; }   
+2.  int main(void) 　　　　　　　<- 시작 부분     
+   { (함수명)(); } 　　　　　　　<- 루프문 추가 가능      
+   
+#### (2) void (함수명)(int n) 　　　　　<- 입력값이 있는 정의 함수의 프로토타입     
+1.  void (함수명)(int n) 　　　　　<- 함수 정의/ 매개 변수화      
+   { 실행문 ex> for 루프문 or printf 함수 등; }   
+2.  int main(void) 　　　　　　　<- 시작 부분     
+   { (함수명)(3); } 　　　　　　　<- n=3 대입의 뜻      
+##### main 함수가 맨 위에 있는 것이 잘 디자인 된 것이므로 함수 정의를 밑으로 내리고, 함수 프로토타입만 main 함수 위에 작성한다.
 
 
 
