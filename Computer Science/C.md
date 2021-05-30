@@ -3,11 +3,12 @@
 ###### 아주 오래되고 전통적인 텍스트 기반의 언어 &nbsp;&nbsp;&nbsp; /스크래치만큼 사용자 친화적이진 않지만, 스크래치보다 많은 기능을 사용할 수 있다.   </br>   
 코드 작성 환경 : [CS50 샌드박스](sandbox.cs50.io)   = 리눅스로 돌아가는 클라우드 기반의 환경   </br>   
 
-1. 기본적인 라이브러리 = include <stdio.h>   <- io는 입출력이란 뜻, 즉, printf 함수 포함   
-2. **첫 시작코드 = int main(void) { } = 스크래치의 깃발클릭 블록**   
-3. (출력형태) main (입력형태) -> int main(void) = 출력형태는 int, 입력형태는 void 즉, 입력은 없다는 뜻     
-4. printf = 형식화된(f) 문자를 출력(print)한다.    
-5.  printf("hello, world");   = hello, world 출력   
+1. 기본적인 라이브러리 = include <stdio.h>   <- io는 입출력이란 뜻, 즉, printf 함수 포함     
+2. include <unistd.h> 　　-> 　　sleep 함수 사용 가능, sleep(1); = 1초 쉬라는 뜻 
+3. **첫 시작코드 = int main(void) { } = 스크래치의 깃발클릭 블록**   
+4. (출력형태) main (입력형태) -> int main(void) = 출력형태는 int, 입력형태는 void 즉, 입력은 없다는 뜻     
+5. printf = 형식화된(f) 문자를 출력(print)한다.    
+6.  printf("hello, world");   = hello, world 출력   
 
 </br>   
 
@@ -33,13 +34,20 @@ $ = 프롬프트/쉘이라고 부르며 입력하라는 표시
 
  (1) % :point_right: 나머지 연산자 　　　　　　　　　(2) // :point_right: 주석 　　　　　　　(3) \n :point_right: 줄바꿈 문자 　</br>   
  (4) || :point_right: 혹은, 또는 (엔터 위 키)　　　　　　(5) && :point_right: 그리고 　　　　　(6) == :point_right: equal 　　 </br>   　  
- (7) ; :point_right: 마침표, 실행문 끝에 사용, 조건 or 반복문 끝은 X   　　　　　　　　 (8) = :point_right: 할당연산자, 오른쪽 내용을 왼쪽으로 지정   </br>   
+ (7) ; :point_right: 마침표, 실행문 끝에 사용, 조건 or 반복문 끝은 X   　　　　　　　　 (8) = :point_right: 할당연산자, 오른쪽 내용을 왼쪽으로 지정   </br>    
 
- (9) cd (폴더명) :point_right: 폴더로 이동 　　　　　　(10) pwd :point_right: 현재 경로 표시 　(11) cd :point_right: 기본 설정 디렉토리로 이동     </br>      
- (12) mkdir :point_right: 폴더 생성　　　　　　　　　(13) rmdir :point_right: 폴더 삭제　　　(14) rm (파일명) :point_right: 삭제 　</br>     
+ (1) cd (폴더명) :point_right: 폴더로 이동 　　　　　　(2) pwd :point_right: 현재 경로 표시 　(3) cd :point_right: 기본 설정 디렉토리로 이동     </br>      
+ (4) mkdir :point_right: 폴더 생성　　　　　　　　　(5) rmdir :point_right: 폴더 삭제　　　(6) rm (파일명) :point_right: 삭제 　</br>     
  
- (15) ls :point_right: 현재 디렉토리의 파일 목록 표시, * 붙은 파일은 머신코드 파일      
+ (7) ls :point_right: 현재 디렉토리의 파일 목록 표시, * 붙은 파일은 머신코드 파일      
 </br>   
+
+##### 구문 설탕 = 기능 추가 X, 기존 기능을 보기 좋고 간결하게 활용   
+int counter = 0;   
+counter = counter + 1; 　　-> 　　counter += 1; 　　->  　　counter ++;   
+counter = counter x 2; 　　-> 　　counter * = 2;
+
+</br>
 
 ### -- 자료형 ↔ 형식지정자      
 
@@ -54,10 +62,15 @@ $ = 프롬프트/쉘이라고 부르며 입력하라는 표시
 ##### 5) long ↔ %li  
 int보다 더 많은 비트를 취급하는 정수, 40억 이상의 데이터를 가진 거대 기업 등에서 사용   
 ##### 6) float ↔ %f (%.2f = 소수점 2자리만 표현)    
-소수점을 갖는 실수   
+소수점을 갖는 실수, 32비트 사용      
 ##### 7) double ↔ %f   
-소수점 뒤에 더 많은 수를 가지는 실수   
+소수점 뒤에 더 많은 수를 가지는 실수, 64비트 사용      
 </br>    
+
+#### 오버플로우     
+###### 컴퓨터는 하드웨어인 RAM에 데이터를 저장하기 때문에 저장용량 한계 존재 (ex. Y2K 문제 : 저장용량 한계로 1920년 -> 20년으로 저장했는데 2000년이 되자 1900=2000으로 인식되는 문제 발생)          
+##### 정수 오버플로우 => int는 32비트를 사용하는데, int형인 i에 2씩 계속 곱해나가면 10억자리 이후부턴 다음 자릿수를 저장할 용량/비트가 없기 때문에 0으로 표시된다. 이것이 오버플로우이다.   
+##### 부동 소수점 부정확성 => 1/10=0.1이지만 n0번째 소수점까지 나타내고자 한다면, 컴퓨터는 무한한 숫자들을 모두 저장할 수 없기 때문에 1/10에 가장 가까운 값을 저장하므로 100% 정확하진 않다.  
 
 ### -- get_(자료형) 함수 (CS50 라이브러리)    
 ##### get_string, get_float, get_double ...etc
@@ -75,12 +88,7 @@ int보다 더 많은 비트를 취급하는 정수, 40억 이상의 데이터를
 2. printf 함수의 " " 사이에 형식지정자가 있다면 쉼표와 변수명을 같이 입력하여 어디서 값을 가져올지 지정    
 3. printf("hello,%s,%s\n",answer1,answer2); -> 변수 두 개를 왼쪽부터 오른쪽으로 순서대로 지정   
 </br>   
-
-##### 구문 설탕 = 기능 추가 X, 기존 기능을 보기 좋고 간결하게 활용   
-int counter = 0;   
-counter = counter + 1; 　　-> 　　counter += 1; 　　->  　　counter ++;   
-
-</br>   
+   
 
 ### --조건문    
 #### 1. 조건 2개   
@@ -99,7 +107,7 @@ counter = counter + 1; 　　-> 　　counter += 1; 　　->  　　counter ++;
 
 ### --루프    
 #### 1. 무한 루프   
-##### while (true)   
+##### while (true) 혹은 while ()  
 { 실행문 ex) printf함수 등 ;　}     
 #### 2-1. n번 반복 while 루프   
 ###### int i = 0;   
@@ -120,7 +128,7 @@ counter = counter + 1; 　　-> 　　counter += 1; 　　->  　　counter ++;
 ##### for (int i=0; i < n; i++)   
 ##### { for (int j=0; j < n; j++)   
 ##### 　　{ 실행문 ; }   
-##### 　　　printf("\n") ;   　　　}
+##### 　　　printf("\n") ;   　　　} 　　　　　<- 내부 루프 끝날때마다 줄바꿈을 출력하므로 j = 가로, i = 세로      
 </br>   
 
 ### --사용자 정의 함수   
