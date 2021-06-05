@@ -8,8 +8,11 @@
 3. **첫 시작코드 = int main(void) { } = 스크래치의 깃발클릭 블록**   
 4. (출력형태) main (입력형태) -> int main(void) = 출력형태는 int, 입력형태는 void 즉, 입력은 없다는 뜻     
 5. printf = 형식화된(f) 문자를 출력(print)한다.    
-6.  printf("hello, world");   = hello, world 출력   
+6.  printf("hello, world");   = hello, world 출력       
 
+###### ※ \0 　->　 널 문자(널 종단 문자), 1 bytes(=8 bits)가 모두 0인 상태이며 문자열의 끝 표시 　
+###### printf 함수는 일종의 루프를 만들어서 첫 글자부터 널 문자 여부를 확인, 널 문자 X = 출력 / 널 문자 O = 중단     
+###### 즉, hello 라는 문자열은 RAM 내에 'h' 'e' 'l' 'l' 'o' '\0' 로 총 6 bytes의 공간을 차지하는 것이다.   
 </br>   
 
 ### -- 컴파일러(compiler)     
@@ -34,7 +37,8 @@ $ = 프롬프트/쉘이라고 부르며 입력하라는 표시
 
  (1) % :point_right: 나머지 연산자 　　　　　　　　　(2) // :point_right: 주석 　　　　　　　(3) \n :point_right: 줄바꿈 문자 　</br>   
  (4) || :point_right: 혹은, 또는 (엔터 위 키)　　　　　　(5) && :point_right: 그리고 　　　　　(6) == :point_right: equal 　　 </br>   　  
- (7) ; :point_right: 마침표, 실행문 끝에 사용, 조건 or 반복문 끝은 X   　　　　　　　　 (8) = :point_right: 할당연산자, 오른쪽 내용을 왼쪽으로 지정   </br>    
+ (7) ; :point_right: 마침표, 실행문 끝에 사용, 조건 or 반복문 끝은 X   　　　　　　　　 (8) = :point_right: 할당연산자, 오른쪽 내용을 왼쪽으로 지정       
+ </br>    
 
  (1) cd (폴더명) :point_right: 폴더로 이동 　　　　　　(2) pwd :point_right: 현재 경로 표시 　(3) cd :point_right: 기본 설정 디렉토리로 이동     </br>      
  (4) mkdir :point_right: 폴더 생성　　　　　　　　　(5) rmdir :point_right: 폴더 삭제　　　(6) rm (파일명) :point_right: 삭제 　</br>     
@@ -52,7 +56,7 @@ counter = counter x 2; 　　-> 　　counter * = 2;
 ### -- 자료형 ↔ 형식지정자      
 
 ##### 1) 문자열(string) ↔ %s  
-? bytes/ 프로그래머들이 단어, 문장, 구절을 부르는 말, 숫자와는 다른 종류의 데이터, 변수 지정시 " 사용    
+? bytes/ 프로그래머들이 단어, 문장, 구절을 부르는 말, 숫자와는 다른 종류의 데이터, 변수 지정시 " 사용 (char 1개가 아닌 여러개이므로)         
 ##### 2) bool   
 1 bytes = 8 bits/ 참,거짓의 값을 지니는 불리안 표현   
 ##### 3) char ↔ %c  
