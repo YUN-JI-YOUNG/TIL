@@ -37,7 +37,7 @@ $ = 프롬프트/쉘이라고 부르며 입력하라는 표시
 
  (1) % :point_right: 나머지 연산자 　　　　　　　　　(2) // :point_right: 주석 　　　　　　　(3) \n :point_right: 줄바꿈 문자 　</br>   
  (4) || :point_right: 혹은, 또는 (엔터 위 키)　　　　　　(5) && :point_right: 그리고 　　　　　(6) == :point_right: equal 　　 </br>   　  
- (7) ; :point_right: 마침표, 실행문 끝에 사용, 조건 or 반복문 끝은 X   　　　　　　　　 (8) = :point_right: 할당연산자, 오른쪽 내용을 왼쪽으로 지정       
+ (7) ; :point_right: 마침표, 실행문 끝에 사용, 조건 or 반복문 끝은 X   　　　　　　　　 (8) = :point_right: 할당연산자, 오른쪽 내용을 왼쪽으로 지정      (9) != 👉 not equal   
  </br>    
 
  (1) cd (폴더명) :point_right: 폴더로 이동 　　　　　　(2) pwd :point_right: 현재 경로 표시 　(3) cd :point_right: 기본 설정 디렉토리로 이동     </br>      
@@ -71,7 +71,7 @@ counter = counter x 2; 　　-> 　　counter * = 2;
 8 bytes = 64 bits/ 소수점 뒤에 더 많은 수를 가지는 실수      
 
 ###### 추가)  char a1 = 'A';     
-###### 　　　printf("%i\n", (int) a1); 　　　<- 이렇게 char를 int로 바꾸는 등의 자료형 변형 가능
+###### 　　　printf("%i\n", (int) a1); 　　　<- 이렇게 char를 int로 바꾸는 등의 자료형 변형 가능   
 </br>      
 
 #### ※ 전역 변수    
@@ -141,7 +141,7 @@ counter = counter x 2; 　　-> 　　counter * = 2;
 ##### for (int i=0; i < n; i++)   
 ##### { for (int j=0; j < n; j++)   
 ##### 　　{ 실행문 ; }   
-##### 　　　printf("\n") ;   　　　} 　　　　　<- 내부 루프 끝날때마다 줄바꿈을 출력하므로 j = 가로, i = 세로      
+##### 　　　printf("\n") ;   　　　} 　　　　　<- 내부 루프 끝날때마다 줄바꿈을 출력하므로 j = 가로, i = 세로       
 </br>   
 
 ### --사용자 정의 함수   
@@ -167,5 +167,83 @@ counter = counter x 2; 　　-> 　　counter * = 2;
 
 ##### main 함수가 맨 위에 있는 것이 잘 디자인 된 것이므로 함수 정의를 밑으로 내리고, 함수 프로토타입만 main 함수 위에 작성한다.   
 
+</br>   
+
+### 라이브러리    
+<details>
+   <summary><b>(1) string.h</b></summary>
+   <div markdow="1">   
+      
+C 언어의 표준 라이브러리이며 메모리 블록이나 문자열을 다룰 수 있는 함수 포함     
+      
+1. memcpy(k,const n,size_t j) = n의 j 바이트만큼을 k에 복사한다.   
+2. memmove(k,const n,size_t j) = n의 j 바이트만큼을 k로 옮긴다.   
+3. char strcpy(char k, const char n) = n을 k에 복사한다.   
+4. char strncpy(char k, const char n, size_t j) = n의 처음 j개 문자를 k로 복사한다.      
+
+5. strcpy (k, const n) = n을 k뒤에 붙인다.   
+6. strncat (k,n,size_t j) = n의 j개 문자를 k뒤에 붙인다.   
+
+7. memcmp (k,n,size_t j) = k의 j바이트 데이터와 n의 j바이트 데이터를 비교한다.     
+8. strcmp (k,n) = k와 n을 비교한다.   
+9. strcoll (k,n) = LC_COLLATE에 정의된 방식에 따라 해석된후 비교한다.   
+10. strncmp (k,n,size_t j) = k의 j개 문자와 n의 j개 문자를 비교한다.   
+11. strxfrm (k,const n,size_t j) = 현재 지역 정보에 따라 n의 문자열을 변환하고 j개 문자를 k에 복사한다.    
+
+12. memchr(const k, n, size_t j) = k의 메모리의 처음 j바이트 중 처음으로 n과 일치하는 문자의 주소를 반환한다.   
+13. strchr(const k, n) = k에서 처음으로 n과 일치하는 문자의 주소를 반환한다.
+14. strcspn(const k, const n) = k에서 n의 문자들을 찾아 처음으로 일치하는 문자의 주소를 반환한다.
+15. strpbrk(const k, const n) = k에서 n의 문자를 찾아 n에서 k와 처음으로 일치하는 문자의 주소를 반환한다.
+16. strrchr(const k, n) = k에서 마지막으로 n과 일치하는 문자의 주소를 반환한다.
+17. strspn(const k, const n) = k에서 n의 문자가 아닌 문자가 처음으로 나오는 주소를 반환한다.
+18. strstr(const k, const n) = k에서 n을 검색하여 처음 나타난 주소를 반환한다.
+19. strtok(k, const n) = k를 n 문자로 분리한다, n에 해당하는 문자가 NULL로 변경 (ex. k = 12&345, const n = & 일때, 출력하면 12 345)     
+      
+19-1. strtok_r(k, const n, j) 👉 strtok()과 동일한 기능, 다른점은 j로 찾는 위치를 관리하므로 중복 사용 가능. 즉, thread-safe      
+      
+20. strsep(k, const n) = k를 n문자로 분리한다. n 문자가 처음이나 마지막에 위치하거나 연속될 경우, strtok()는 무시, strsep()는 공백으로 분리     
+　　　　　　　(ex. k = &12&&345&789&, const n = & 일때, strsep() = (공백) 12 (공백) 345 789 (공백) )   
+
+21. memset(k, n, size_t j) = k의 메모리의 처음 j바이트를 n으로 채운다.   
+22. strerror(k) = k을 해석한 후 그에 해당하는 에러 문자열의 포인터를 반환한다.   
+23. strlen(const k) = k의 길이를 반환한다.   
+   </div>
+   </details>
+   
+   </br>   
+<details>   
+   <summary><b>(2) ctype.h</b></summary>   
+   <div markdown="2">   
+      
+C 언어의 표준 라이브러리이며, 문자들을 조건에 맞는지 검사하고 변환하는 함수 포함   
+      
+1. int is_____(int c) = c가 _______이면 0이 아닌 값 반환
+      - alnum = 알파벳 or 숫자    
+      - alpha = 알파벳   
+      - cntrl = 제어 문자   
+      - digit = 숫자    
+      - graph = 그래픽 문자   
+      - lower = 소문자   
+      - print = 출력할 수 있는 문자   
+      - punct = 구두점 문자   
+      - space = 공백 문자   
+      - upper = 대문자   
+      - xdigit = 16진 숫자   
+ 
+2. int to_____(int c) = c를 _____로 변환   
+      - lower = 소문자   
+      - upper = 대문자   
+   int __toascii(int c) = c를 아스키 코드로 변환     
+      </div>   
+   </details>   
+   
+   </br>   
+   
+
+      
+      
+      
+      
+ 
 
 
