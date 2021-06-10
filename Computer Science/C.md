@@ -48,8 +48,10 @@
 ### -- 연산자     
 
  (1) % :point_right: 나머지 연산자 　　　　　　　　　(2) // :point_right: 주석 　　　　　　　(3) \n :point_right: 줄바꿈 문자 　</br>   
- (4) || :point_right: 혹은, 또는 (엔터 위 키)　　　　　　(5) && :point_right: 그리고 　　　　　(6) == :point_right: equal 　　 </br>   　  
- (7) ; :point_right: 마침표, 실행문 끝에 사용, 조건 or 반복문 끝은 X   　　　　　　　　 (8) = :point_right: 할당연산자, 오른쪽 내용을 왼쪽으로 지정      (9) != 👉 not equal   
+ (4) || :point_right: 혹은, 또는 (엔터 위 키)　　　　　　(5) && :point_right: 그리고 　　　　　(6) == :point_right: equal (문자열은 비교불가)　　 </br>   　  
+ (7) ; :point_right: 마침표, 실행문 끝에 사용, 조건 or 반복문 끝은 X   　　　　　　　　 (8) = :point_right: 할당연산자, 오른쪽 내용을 왼쪽으로 지정   
+ 
+ (9) != 👉 not equal   
  </br>    
 
  (1) cd (폴더명) :point_right: 폴더로 이동 　　　　　　(2) pwd :point_right: 현재 경로 표시 　(3) cd :point_right: 기본 설정 디렉토리로 이동     </br>      
