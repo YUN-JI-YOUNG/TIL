@@ -7,7 +7,24 @@
 for i from 0 to n-1    
 　if i번째 요소 = 50   
   　　return true   
-return false
+return false      
+
+실제코드 예시 >   
+```
+int main(void)   
+{ int numbers[]={1,4,6,3,18,2,50};   
+for(int i = 0; i<7; i++)
+{
+  if(numbers[i]==50)   
+    {
+      printf("Found\n");
+      return 0;
+    }
+ }
+ printf("Not Found\n");
+ return 1;
+}
+```
 
 </br>
 
