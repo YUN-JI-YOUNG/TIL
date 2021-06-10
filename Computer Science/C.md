@@ -82,8 +82,24 @@ counter = counter x 2; 　　-> 　　counter * = 2;
 ##### 6) float ↔ %f (%.2f = 소수점 2자리만 표현)    
 4 bytes = 32 bits/ 소수점을 갖는 실수              
 ##### 7) double ↔ %f   
-8 bytes = 64 bits/ 소수점 뒤에 더 많은 수를 가지는 실수      
+8 bytes = 64 bits/ 소수점 뒤에 더 많은 수를 가지는 실수    
 
+##### 8) 자료형 지정   
+``` 
+typedef struct 
+{ (자료형1) (이름1); (자료형2) (이름2); } 
+(새로운 자료명);
+```
+-> struct 는 여러 자료형을 담기 위한 그릇   
+-> 그 안에 포함된 속성값은 (새로운 자료명).(이름1)로 표현할 수 있다.   
+ex) 
+``` 
+typedef struct   
+{ string abc; string cde; }   
+aph;   
+```      
+-> 속성값 표현 : aph.abc 또는 aph.cde 등등   
+ 
 ###### 추가)  char a1 = 'A';     
 ###### 　　　printf("%i\n", (int) a1); 　　　<- 이렇게 char를 int로 바꾸는 등의 자료형 변형 가능      
 </br>      
