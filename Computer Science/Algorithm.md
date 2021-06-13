@@ -46,18 +46,32 @@ if middle item <50
  
  </br>     
  
- ### 2. 버블 정렬(=bubble sort)            
+ ### 2. 정렬 알고리즘    
+ #### 2-1. 버블 정렬(=bubble sort)            
  ##### 큰 숫자가 올바른 위치로 갈 때까지 움직이는 정렬 방법      
  ###### - 효율성 : O(n^2), Ω(n^2)   
- 의사코드 예시 >
+ 의사코드 예시 >   
  Repeat n-1    
-  For i from 0 to n-2   
-   If i'th and i+1'th elements out of order       
-    Swap them      
+ 　For i from 0 to n-2   
+   　　If i'th and i+1'th elements out of order       
+ 　Swap them      
  -> 바깥쪽 반복문은 최대 n-1번 실행, 안쪽 반복문도 최대 n-1번 실행(0 to n-2)이므로 (n-1) x (n-1) = n^2+2n+1 = O(n^2)   
  -> n의 값이 커질수록 n^2의 영향력이 커지므로   
  
  </br>   
+ 
+ #### 2-2. 선택 정렬(=selection sort)      
+ ##### 매번 목표를 세워 가장 작은 값을 찾아 1번째 숫자와 바꾸고, 그 다음 작은 값을 찾아 2번째의 숫자와 바꾸는 것을 반복하는 정렬 방법   
+ ###### - 효율성 : O(n^2), Ω(n^2)       
+ 의사코드 예시 >     
+ Repeat n       
+ 　For i from 0 to n-1   
+ 　　Find smallest item between i'th item and last item   
+  　Swap smallest item with i'th item      
+ -> 제일 적은 숫자를 찾는데 n번, 그 다음 작은 숫자 찾는데 n-1번...이므로 n+(n-1)+(n-2)+...+1 = n(n+1)/2 = (n^2)/2 + n/2 = O(n^2)      
+   
+ </br>   
+ 
  
  
  ### 알고리즘의 효율성 표기법      
@@ -65,7 +79,7 @@ if middle item <50
  #### 2-1. 빅 오 표기법(Big-O)     
  ##### 알고리즘을 수행하는 데 필요한 시간의 상한선 의미          
  괄호 안 = 실행시간 / 아래로 갈수록 더 빠른 알고리즘   
- 1. O(n^2) = 버블 정렬      
+ 1. O(n^2) = 버블 정렬, 선택 정렬         
  2. O(n log n)   
  3. O(n) = 선형 검색        
  4. O(log n) = 이진 탐색     
@@ -76,7 +90,7 @@ if middle item <50
 
 #### 2-2. Big-Ω    
 ##### 알고리즘을 수행하는 데 필요한 시간의 하한선 의미   
-1. Ω(n^2) = 버블 정렬     
+1. Ω(n^2) = 버블 정렬, 선택 정렬        
 2. Ω(n log n)   
 3. Ω(n)         
 4. Ω(log n)   
