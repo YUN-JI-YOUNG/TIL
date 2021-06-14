@@ -5,10 +5,12 @@
 ##### 배열의 인덱스를 처음부터 하나씩 증가시키면서 탐색하는 방법     
 ###### - 효율성 : O(n), Ω(1)
 의사코드 예시 >   
+``` 
 for i from 0 to n-1    
 　if i번째 요소 = 50   
   　　return true   
 return false      
+``` 
 
 실제코드 예시 >   
 ```
@@ -34,7 +36,8 @@ for(int i = 0; i<7; i++)
 ##### 배열이 정렬되어있다면, 중간부터 시작하여 찾고자하는 값과 비교해가며 작은 값 혹은 큰 값이 저장되어있는 쪽으로 탐색하는 방법     
 ###### - 효율성 : O(log n), Ω(1)
 ex) 분할 정복 기법    
-의사코드 예시 >   
+의사코드 예시 >  
+```
 if no items  
 　return false      
 if middle item = 50     
@@ -42,32 +45,45 @@ if middle item = 50
 if middle item > 50   
 　search left half    
 if middle item <50    
-　search right half    
+　search right half   
+ ```
  
  </br>     
  
  ### 2. 정렬 알고리즘    
  #### 2-1. 버블 정렬(=bubble sort)            
- ##### 큰 숫자가 올바른 위치로 갈 때까지 움직이는 정렬 방법      
- ###### - 효율성 : O(n^2), Ω(n^2)   
- 의사코드 예시 >   
+ ##### 큰 숫자가 올바른 위치로 갈 때까지 움직이는 정렬 방법       
+ 의사코드 예시1 >   효율성 : O(n^2), Ω(n^2)   
+ ```
  Repeat n-1    
  　For i from 0 to n-2   
    　　If i'th and i+1'th elements out of order       
- 　Swap them      
+ 　Swap them     
+  ```
  -> 바깥쪽 반복문은 최대 n-1번 실행, 안쪽 반복문도 최대 n-1번 실행(0 to n-2)이므로 (n-1) x (n-1) = n^2+2n+1 = O(n^2)   
- -> n의 값이 커질수록 n^2의 영향력이 커지므로   
+ -> n의 값이 커질수록 n^2의 영향력이 커지므로    
+    
+ 의사코드 예시2 > 효율성 : O(n^2), Ω(n)   
+ ```
+ Repeat until no swaps   
+ 　For i from 0 to n-2   
+  　If i'th and i+1'th elements out of order   
+   Swap them   
+   ```
+ -> 만약 정렬이 되어있다면 n-1쌍을 모두 확인하여 swap이 일어나지 않으면 종료하니까 하한이 n-1이므로 = Ω(n)   
  
  </br>   
  
  #### 2-2. 선택 정렬(=selection sort)      
- ##### 매번 목표를 세워 가장 작은 값을 찾아 1번째 숫자와 바꾸고, 그 다음 작은 값을 찾아 2번째의 숫자와 바꾸는 것을 반복하는 정렬 방법   
+ ##### 가장 작은 값을 찾아 1번째 숫자와 바꾸고, 그 다음 작은 값을 찾아 2번째의 숫자와 바꾸는 것을 반복하는 정렬 방법   
  ###### - 효율성 : O(n^2), Ω(n^2)       
  의사코드 예시 >     
- Repeat n       
+```
+Repeat n       
  　For i from 0 to n-1   
  　　Find smallest item between i'th item and last item   
   　Swap smallest item with i'th item      
+   ```
  -> 제일 적은 숫자를 찾는데 n번, 그 다음 작은 숫자 찾는데 n-1번...이므로 n+(n-1)+(n-2)+...+1 = n(n+1)/2 = (n^2)/2 + n/2 = O(n^2)      
    
  </br>   
@@ -90,9 +106,9 @@ if middle item <50
 
 #### 2-2. Big-Ω    
 ##### 알고리즘을 수행하는 데 필요한 시간의 하한선 의미   
-1. Ω(n^2) = 버블 정렬, 선택 정렬        
+1. Ω(n^2) = 선택 정렬        
 2. Ω(n log n)   
-3. Ω(n)         
+3. Ω(n) = 버블 정렬           
 4. Ω(log n)   
 5. Ω(1) = 선형 검색, 이진 탐색 -> 운이 좋다면 1번에 바로 찾을 수 있으므로.       
 
