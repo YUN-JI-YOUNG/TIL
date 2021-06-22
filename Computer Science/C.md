@@ -143,43 +143,68 @@ aph;
 
 ### --조건문    
 #### 1. 조건 2개   
-##### if ( 조건 ) 
+```
+if ( 조건 ) 
 { 실행문 ex) printf함수 등 ;　}　   　        
-##### else   
-{ 실행문 ex) printf함수 등 ;　}　        
+else   
+{ 실행문 ex) printf함수 등 ;　}　    
+```
 #### 2. 조건 3개    
-##### if ( 조건 ) 
+```
+if ( 조건 ) 
 { 실행문 ex) printf함수 등 ;　}　   　        
-##### else if ( 조건 )     
+ else if ( 조건 )     
 { 실행문 ex) printf함수 등 ;　}　        
-##### else if ( 조건 ) 또는 else      
-{ 실행문 ex) printf함수 등 ;　}   
+ else if ( 조건 ) 또는 else      
+{ 실행문 ex) printf함수 등 ;　}      
+```
 </br>   
 
 ### --루프    
 #### 1. 무한 루프   
-##### while (true) 혹은 while ()  
-{ 실행문 ex) printf함수 등 ;　}     
+```
+while (true) 혹은 while ()  
+{ 실행문 ex) printf함수 등 ;　}        
+```
 #### 2-1. n번 반복 while 루프   
-###### int i = 0;   
-##### while (i < n)   
-###### { 실행문 ex) printf함수 등 ;　   
-##### 　i++; }     
+``` 
+int i = 0;   
+while (i < n)   
+{ 실행문 ex) printf함수 등 ;　   
+i++; }
+``` 
 #### 2-2. n번 반복 for 루프   
-##### for (int i = 0; i < 50; i++)　　　　<- for(변수지정; 계속 물어볼 불리안 표현; 변수 수정방법)       
-##### { 실행문 ex) printf함수 등 ;　}   
+``` 
+for (int i = 0; i < 50; i++)　　　　<- for(변수지정; 계속 물어볼 불리안 표현; 변수 수정방법)       
+{ 실행문 ex) printf함수 등 ;　}     
+``` 
 #### 3. do-while 루프 　　　　　　　<- while, for루프와 달리 무조건 한 번은 실행한 후 불리언 표현이 참일 때 반복 결정     
-##### int n;   
-##### do   
-##### { n = 실행문 ; }   
-##### while (불리언 표현) ;   
-##### return n;   또는 for (int i=0; i < n; i++) + printf("\n"); 등 　　　　　<- printf("\n"); 는 새로운 한 줄 출력     
+``` 
+int n;   
+do   
+{ n = 실행문 ; }   
+while (불리언 표현) ;   
+return n; 또는 for (int i=0; i < n; i++) + printf("\n");  등 　　　　　<- printf("\n"); 는 새로운 한 줄 출력     
+```
+
 #### 4. 중첩 루프 　　　　　　　<- 2차원 행/열 구현 가능, n x n 블록    
-##### do-while 루프   
-##### for (int i=0; i < n; i++)   
-##### { for (int j=0; j < n; j++)   
-##### 　　{ 실행문 ; }   
-##### 　　　printf("\n") ;   　　　} 　　　　　<- 내부 루프 끝날때마다 줄바꿈을 출력하므로 j = 가로, i = 세로       
+``` 
+do-while 루프   
+for (int i=0; i < n; i++)   
+{ for (int j=0; j < n; j++)   
+ 　　{ 실행문 ; }   
+ 　　　printf("\n") ;   　　　}  　　　　　<- 내부 루프 끝날때마다 줄바꿈을 출력하므로 j = 가로, i = 세로     
+ ``` 
+
+#### 5. 문자열 순환 루프 (기본)      
+##### 문자열 s 정의 이후     
+```
+for (int i = 0, n = strlen(s); i < n + 1; i++)   　　　         
+ { 실행문 }        
+ ``` 
+##### - i < n + 1 인 이유는 널 종단 문자를 포함하기 때문, 필요없다면 n 까지만.     
+##### - 실행문에 t[i] = s[i] 를 작성하면 s를 t에 복사하는 문자열 복사로, strcpy 함수를 이용하여 strcpy(t,s)로 간단히 작성할 수 있다.   
+
 </br>   
 
 ### --사용자 정의 함수   
