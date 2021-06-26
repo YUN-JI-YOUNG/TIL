@@ -159,14 +159,45 @@ printf("y: %s\n", y);
 
 </br>   
  
-### -- fopen - fclose 함수      
+### -- 파일쓰기      
 #### FILE ```*```변수이름 = fopen("파일 이름", "r, w, a"); // r 읽기, w 쓰기, a 덧붙이기    
-1. fopen은 해당 파일을 가리키는 포인터 반환      
-2. 사용자에게 값 입력 받기   
-3. fprintf 함수는 파일용 printf로 파일에 출력 가능, ```fprintf(변수이름, "형식지정자", 해당 변수);```            
-4. 맨 마지막엔 fclose(변수이름); 로 파일 닫기     
+#### fprintf(변수명, "형식지정자\n", 출력할 변수);   
+``` 
+FILE *file = fopen("파일명.csv", "a");  //fopen 함수를 이용하면 파일을 FILE 자료형으로 불러오기 가능
+char *name = get_string("Name: ");   // 사용자에게 값 입력받기
+char *number = get_string("Number: ");   
+fprintf(file, "%s,%s\n", name, number);  // 파일에 값 출력
+fclose(file);  // 파일 닫기
+```
+- fopen은 해당 파일을 가리키는 포인터 반환           
+- scanf 함수를 사용해야하지만 간단하게 get_string 함수로 사용자에게 값 입력 받기   
+- fprintf 함수는 파일용 printf로 파일에 출력 가능               
+- 맨 마지막엔 fclose(변수이름); 로 파일 닫기        
 
 </br>   
+
+### -- 파일읽기      
+#### fread(배열명, 읽을 바이트수, 읽을 횟수, 읽을 파일);   
+```
+int main(int argc, char *argv[])   // 명령행 인자로 사용자에게 값을 입력받아 그 값을 배열에 저장하는 것   
+{ if (argc != 2)  
+  { return 1; }   
+  FILE *file = fopen(argv[1], "r");
+  if (file == NULL)   // fopen이나 malloc 등의 함수는 오류일 때 NULL 출력하므로      
+  { return 1; }   
+  unsigned char bytes[3];   // 크기 3인 문자배열 만들기 
+  fread(bytes, 3, 1, file);   // 파일의 첫 3바이트(24bits)를 읽어오기   
+  if (bytes[0] == 0xff && bytes[1] == 0xd8 && bytes[2] == 0xff)
+  { printf("Maybe\n"); }
+  else
+  { printf("No\n"); }
+  ```
+- argv[0] = 프로그램 이름, argv[1] = 사용자 입력값이므로 argc가 2가아니면 1개를 입력한 것이 아니라는 뜻     
+- unsigned : -128 ~ 127 까지가 아닌 0 ~ 255까지의 범위 값 의미     
+- 굳이 3바이트 읽는 이유 : jpeg 개발자들이 정한 일종의 매직 넘버가 있어 모든 jpeg 파일의 첫 3 바이트는 FF, D8, FF로 시작하므로 jpeg 파일 유무 판단 가능   
+
+</br>   
+
 
 ### --조건문    
 #### 1. 조건 2개   
