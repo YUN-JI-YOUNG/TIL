@@ -50,12 +50,30 @@ aph;
 1. number - 정수, 값      
 2. next - 관례적인 이름이며 다른 이름으로 불러도 상관 X, 리스트의 다음 요소를 가리키는 메모리 덩어리      
 
+
+#### - 기본 단위 node 구조체 정의        
 ``` 
 typedef struct node    // 마지막 줄에 node가 나오기 전엔 node라는 단어를 못 쓰므로 앞에서 선언하는 것   
 { int number;
-  struct node *next; }   
+  struct node *next; }    // 연결 리스트는 그 다음 메모리 덩어리의 주소를 같이 저장하므로   
   node;    // 이 node 구조체의 별칭   
-  ```
+  ```   
+  
+#### - 구현   
+```
+node *list = NULL;    // 처음에는 비어있으므로 첫 번째 리스트에는 아무것도 없어서 NULL로 초기화     
+node *n = malloc(sizeof(node));
+if (n != NULL)  // n이 널이 아닌지 판단. 널이라면 종료 실행하는 등 사용처에 따라 달라진다.   
+{
+(*n).number = 2;     // 괄호로 우선순위 설정   or   
+n->number = 2;      // 윗 코드와 같은 의미를 C 문법으로 작성   
+
+n->next = NULL;      // 아직 다음 리스트가 없어 비어있기 때문       
+list = n;     // 더이상 list는 NULL이 아님   
+
+}
+```    
+
 
 </br>    
 
