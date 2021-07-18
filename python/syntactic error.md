@@ -36,5 +36,13 @@
 -> 예외 객체 Exception을 객체 ex로 except문에서 type(ex) 등으로 참조한다는 뜻          
 - Excpetion 이외에도 예외 객체로 ValueError, ZeroDivisionError 등 사용 가능      
      
-
+### 강제 예외   
+- else문에 raise문을 사용하여 강제 예외 발생    
+``` 
+else : 
+ raise ValueError("값 오류입니다.")
+ ```   
+ -> if문의 조건식에 대해 False라면 raise문을 이용해 강제로 ValueError 예외 상황 발생 유발   
+-> 그 이후엔 `except ValueError as ve : ` 문으로 예외 객체를 ve로 참조    
+-> 그 외 예외에 대해선 `except Exception as ex : `문으로 예외 객체를 ex로 참조   
 
