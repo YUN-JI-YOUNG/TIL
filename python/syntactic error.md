@@ -37,7 +37,9 @@
 - Excpetion 이외에도 예외 객체로 ValueError, ZeroDivisionError 등 사용 가능      
      
 ### 강제 예외   
-- else문에 raise문을 사용하여 강제 예외 발생    
+- else문에 raise문 혹은 assert문을 사용하여 강제 예외 발생
+   
+#### raise       
 ``` 
 else : 
  raise ValueError("값 오류입니다.")
@@ -45,4 +47,12 @@ else :
  -> if문의 조건식에 대해 False라면 raise문을 이용해 강제로 ValueError 예외 상황 발생 유발   
 -> 그 이후엔 `except ValueError as ve : ` 문으로 예외 객체를 ve로 참조    
 -> 그 외 예외에 대해선 `except Exception as ex : `문으로 예외 객체를 ex로 참조   
+
+#### assert   
+```
+assert (표현식-False이면 에러발생), "(오류 메시지)"    
+```
+-> 보통 디버깅으로 상태 검증을 할 때 사용하며, 무조건 `AssertionError` 발생    
+-> 파이썬에서 실행할 때, 터미널에 python `-o` (파일명) 으로 실행하면 assert문과 `__debug__`에 따른 조건부 코드 제거 후 실행    
+
 
