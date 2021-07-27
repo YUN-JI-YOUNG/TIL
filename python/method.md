@@ -173,7 +173,7 @@
 
     `[if else <표현식> for <변수> in <iterable>]`  
 
-    -> if 하나면 맨 뒤지만 , if else가 된다면 앞으로 넘긴다.
+    -> if 하나면 맨 뒤지만 , if else가 된다면 for문 앞으로 넘긴다.    
 
     ````python
     # 1~3의 세제곱식 결과를 담는 리스트
@@ -243,12 +243,15 @@
 
   #### 4-1. 조회
 
-  `.get(key[,default])` -> key에 대응하는 value 반환, key가 딕셔너리에 없으면 KeyError가 아닌 default(= 기본 값은 None)반환
+  `.get(key[,default])` -> key에 대응하는 value 반환, key가 딕셔너리에 없으면 KeyError가 아닌 default(= 기본 값은 None)반환    
+  
+  `.pop(key[,default])` -> key를 제거하고 해당 value 값 반환, key가 딕셔너리에 없으면 default 반환, 하지만 key가 딕셔너리에 없고 default 값도 없으면 KeyError 발생       
+     
+    `키 변경`할 땐, pop 메서드 활용 ```dic['new key'] = dic.pop['old key']```    
 
-  `.pop(key[,default])` -> key를 제거하고 해당 값 반환, key가 딕셔너리에 없으면 default 반환, 하지만 key가 딕셔너리에 없고 default 값도 없으면 KeyError 발생
-
-  #### 4-2. 추가 및 삭제
-
+  #### 4-2. 추가 및 삭제    
+  
+  해당 키에 해당하는 `value 값 변경`할 때     
   `.update()` -> 기존 key를 덮어쓰며 제공하는 key, value로 갱신 , 키워드 인자 활용
 
   키워드 인자 활용할 땐, key type이 자동으로 변환되므로 ''등 사용할 필요 X
@@ -267,3 +270,8 @@
  - Dictionary comprehension
 
     `{key : value for <변수> in < iterable if <조건식>}` 
+    
+      - if-else 열거      
+      ` {t: '나쁨' if dusts[t] > 80 else '보통'  for t in dusts }`       
+      ` {t: '매우나쁨' if dusts[t] > 150 else '나쁨' if dusts[t] > 80 else '보통' if dusts[t] > 30 else '좋음' for t in dusts} `     
+   
