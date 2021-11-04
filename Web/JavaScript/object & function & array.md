@@ -350,4 +350,144 @@
 
   
 
+</br>     
+
+## 배열  
+
+- 참조 타입중 하나로 Array 타입   
+
+- 순서를 보장하는 특징   
+
+- 주로 대괄호를 이용하여 생성   
+
+- 0을 포함한 양의 정수 인덱스로 특정 값에 접근 가능   
+
+  - 파이썬 처럼 array[-1] 처럼 접근 불가   
+  - 마지막 원소로 접근하려면 `array.length - 1` 로 접근   
+
+- 배열의 길이는 `array.length` 형태로 접근 가능   
+
+- 메서드 
+
+  - 기본 배열 조작     
+
+    - `reverse`    
+      - 원본 배열의 순서 반대로 = 뒤집기     
+    - `push` & `pop`  
+      - 마지막에 요소 추가 & 제거   
+    - `unshift` & `shift`  
+      - 맨 앞에 요소 추가 & 제거   
+    - `includes` 
+      - 해당 값이 존재하는지 여부에 따라 T/F 반환   
+    - `indexOf`  
+      - 해당 값이 존재하는지 여부에 따라 index 반환   
+      - 없으면 -1 반환   
+    - `join`   
+      - 파이썬의 `join`  메서드와 유사     
+      - 모든 요소를 구분자를 이용하여 연결    
+      - 구분자 생략 시 쉼표 기본값      
+
+  - 심화  
+
+    배열을 순회하며 특정 로직을 수행하는 메서드이며, 메서드 호출 시 인자로 **callback 함수**를 받는 것이 특징   
+
+    ` callback 함수 : (어떤 함수의 내부에서 실행될 목적으로) 인자로 넘겨받는 함수    `    
+
+    -> 장고 `urls.py` 의 `path(~~, views.index)` 에서의 index 함수가 callback 함수      
+
+    -> 콜백함수는 element, index, array 3가지 매개변수로 구성 (어디까지 사용할지 선택)    
+
+    매개변수를 1개만 넘겨주면 배열요소 할당,  2개를 넘겨주면 요소 - 인덱스 순서가 되는 식              
+
+    `array.method(콜백함수(배열요소, 배열요소의 인덱스, 배열자체))`     
+
+    -> 여기서 콜백함수를 arrow function 으로 작성 가능   
+
+    `array.method((element, index, array) => { 콜백함수 실행코드 } )`   
+
+    
+
+    - `forEach`    
+
+      - 배열의 각 요소에 대해 콜백 함수를 1번씩 실행  
+
+      - return값 X     
+
+      - 배열 순회할 때 사용하는 것을 권장     
+
+        -> 다만, break , continue 사용 불가     
+
+    - `map` 
+
+      - 콜백 함수의 반환값을 요소로 하는 새로운 배열 반환  
+
+        = 배열의 각 요소들을 모아서 새로운 배열 반환    
+
+    - `filter`  
+
+      - 콜백 함수의 반환값이 True인 요소들만 모아서 새 배열 반환  
+
+    - `reduce`   
+
+      - 콜백 함수의 반환 값들을 하나의 값(`acc`)에 누적 후 반환  
+
+        ```javascript
+        array.reduce((acc, element, index, array) => {
+            // 실행코드
+        }, initialValue)
+        
+        // 각 요소에 대해 '실행코드' 실행  
+        // 반환값들을 acc에 누적 후 반환  
+        
+        // initialValue : 최초 콜백 함수 호출 시 acc에 할당되는 값이며, 기본값은 배열의 첫 번째 값  
+        // 빈 배열은 intialValue 를 제공하지않으면 에러 
+        ```
+
+        ```javascript
+        const nums = [1,2,3]
+        const res = nums.reduce((ans,num) => {
+            return ans + num
+        }, 0)
+        
+        console.log(res) // 6
+        ```
+
+        
+
+    - `find`  
+
+      - 콜백 함수의 반환 값이 참이면 해당 요소 반환    
+
+      - 요소 찾으면 바로 return 되면서 함수가 종료됨   
+
+        ```javascript
+        const languages = ['python', 'javascript', 'html', 'java']
+        const query = 'java'
+        
+        const java_lst = []
+        java_lst.push(languages.find((language) => {
+          return language.includes(query)
+        }))
+        console.log(java_lst)
+        
+        // ['javascript']
+        
+        // 해당하는 값이 뒤에 java가 더있지만, javascript를 이미 찾았으므로 종료되어 모두 찾을 수는 없음 
+        ```
+
+        
+
+    - `some`  
+
+      - 요소 중 하나라도 판별 함수를 통과하면 True 반환     
+      - `or` 연산자와 비슷한 로직  
+      - 빈 배열은 항상 False 반환    
+
+    - `every`  
+
+      - 모든 요소가 판별함수를 통과하면 True 반환      
+      - `and` 연산자와 비슷한 로직      
+      - 빈 배열은 항상 True 반환    
+
+
 </br>   
