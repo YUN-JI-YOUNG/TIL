@@ -184,3 +184,298 @@
 
 
 </br>      
+
+## 연산자   
+
+- 할당 연산자 `=`  
+
+  - 단축 연산자 지원   `+=` `-=` `*=` `/=`      
+
+- 비교 연산자   
+
+  - 결과값을 boolean 반환   
+
+  - 문자열은 유니코드 값을 사용하며 표준 사전 순서 기반으로 비교   
+
+    =>  `소문자 > 대문자` / `'a' < 'z'`    
+
+- 동등 비교 연산자 (`==`)  
+
+  - 암묵적 타입 변환을 통해 타입을 일치시킨 후 비교     
+
+    ```javascript
+    const a = 1004
+    const b = '1004'
+    console.log(a==b)  // True
+    
+    a+b  // 10041004
+    ```
+
+  - 두 피연산자가 모두 객체일 경우 메모리의 같은 객체를 바라보는지 판별    
+
+    ```javascript
+    const c = 1
+    const d = true
+    console.log(c == d)  // True
+    
+    c+d // 2
+    ```
+
+  - 예상치 못한 결과가 발생할 수 있어  특별한 경우를 제외하고 사용 X   
+
+- 일치 비교 연산자 (`===`)   
+
+  - 엄격한 비교가 이뤄지며 암묵적 타임 변환이 발생하지 않음    
+    - 엄격한 비교는 타입과 값이 모두 같은지 비교하는 방식   
+
+- 논리 연산자   
+
+  - and 연산 = `&&`   
+  - or 연산 = `||`  
+  - not 연산 = `!`    
+  - 단축 평가 지원    
+
+- 삼항 연산자    
+
+  - 세 개의 피연산자를 사용하여 조건에 따라 값 반환   
+
+  - 가장 왼쪽이 True 이면, `:` 앞의 값 사용   
+
+    ​					False 이면, `:` 뒤의 값 사용   
+
+    `console.log(true ? 1 : 2)   // 1 `   
+
+  - 삼항 연산자의 결과는 변수에 할당 가능     
+
+    `const result = 2 > 1 ? 'y' : 'n'   `
+
+    `console.log(result)   // y`    
+
+  - 한 줄에 표기하는 것을 권장   
+
+</br>   
+
+
+
+## 조건문    
+
+- if 문     
+
+  - 결과값을 Boolean 타입으로 변환 후 T/F 변환   
+
+  - `if` `else if` `else`    
+
+  - 조건은 소괄호 , 실행할 코드는 중괄호 안에 작성   
+
+  - 블록 스코프 생성     
+
+    ```javascript
+    if (조건) {
+        실행코드
+    } else if (조건) {
+        실행코드
+    } else {
+        실행코드
+    }
+    ```
+
+    - 조건 쓸 때는 일치비교 연산자(`===`) 사용   
+
+      ```javascript
+      let username = 'admin'
+      if (username === 'admin'){
+        console.log('관리자님 환영합니다.')
+      } else if (username === 'manager'){
+        console.log('매니저님 환영합니다')
+      } else {
+        console.log(`${username}님 환영합니다.`)
+      }
+      ```
+
+      
+
+- switch 문     
+
+  - 결과값이 어느 값(case)에 해당하는지 판별   
+
+  - 특정 값에 따라 조건을 분기할 때 활용하며, 조건이 많아질 경우 if문보다 가독성이 더 좋을 수 있음   
+
+  - 블록 스코프 생성    
+
+    ```javascript
+    switch(표현식) {
+        case 'value': {
+            실행코드
+            break
+        }
+        case 'value': {
+            실행코드
+            break
+        }
+        default : {
+            실행코드
+        }
+    }
+    ```
+
+    - break 문, default 문은 선택적으로 사용 가능    
+    - break문을 만나거나, default 문을 실행할 때까지 다음 조건문 실행(`Fall-through`)  
+
+    ```javascript
+    let operator = '+'
+    
+    switch(operator){
+        case '+':{
+            console.log(num1+num2)
+            break
+        }
+        case '-':{
+            console.log(num1-num2)
+            break
+        }
+        case '*':{
+            console.log(num1*num2)
+            break
+        }
+        case '/':{
+            console.log(num1/num2)
+            break
+        }
+        default:{
+            console.log('유효하지 않은 연산자')
+        }
+    }
+    ```
+
+    - `표현식의 결과값`과 `case 문의 value 값`을 비교하여 값이 같은 case문의 코드 실행  
+
+</br>     
+
+
+
+## 반복문   
+
+- while     
+  - 조건문이 참인 경우 반복 시행  
+  - if문처럼  조건은 소괄호 안에, 실행할 코드는 중괄호 안에 작성    
+  - 블록 스코프 생성   
+
+
+
+- for    
+
+  - `initialization ; condition ; expression` 으로 구성   
+
+  - initialization   
+
+    - 최초 반복문 진입시 1회만 실행되는 부분   
+
+  - condition  
+
+    - 매 반복 시행 전 확인하는 부분   
+
+  - expression   
+
+    - 매 반복 시행 이후 시행되는 부분   
+
+    ```javascript
+    for (let i=0; i < 3; i++){
+        console.log(i) 
+    }
+    // 0, 1, 2   
+    ```
+
+    
+
+- for in   
+
+  - 주로 **객체의 속성**들을 순회할 때 사용  
+
+  - 배열도 순회 가능하지만 권장 X       
+
+    - 인덱스 순으로 순회한다는 보장이 없으므로 `for in`이 아닌`for of` 사용       
+
+  - 실행할 코드는 중괄호 안에 작성       
+
+  - 블록 스코프 생성   
+
+    ```javascript
+    const nums = {
+        '1key' : 1,
+        '2key' : 2
+    }
+    
+    for (let num in nums) { 
+        console.log(num) 
+    }
+    // 키 값 출력
+    // 1key, 2key
+    
+    for (let num in nums) { 
+        console.log(nums[num]) 
+    }
+    // 밸류값 출력
+    // 1, 2
+    ```
+
+    ```javascript
+    const bestMovie = {
+      title: '벤자민 버튼의 시간은 거꾸로 간다',
+      releaseYear: 2008,
+      actors: ['브래드 피트', '케이트 블란쳇'],
+      genres: ['romance', 'fantasy'],
+    }
+    
+    for (let movie in bestMovie){
+      console.log(`${movie}: ${bestMovie[movie]}`)
+    }
+    
+    // title: 벤자민 버튼의 시간은 거꾸로 간다
+    // releaseYear: 2008
+    // actors: 브래드 피트,케이트 블란쳇
+    // genres: romance,fantasy
+    ```
+
+    - JS 객체의 value는 점이나 대괄호를 이용하여 key값을 통해 접근 가능   
+      - `for in` 은 키값을 꺼내오므로 value들에 접근하려면 출력할 때 [] 활용      
+        - `bestMovie[key]` 출력    
+
+- for of  
+
+  - **반복가능한(iterable)한 객체**를 순회하며 값을 꺼낼 때 사용  
+
+    - Array, Map, Set, String 등..    
+
+  - 실행할 코드는 중괄호 안에 작성      
+
+  - 블록 스코프 생성   
+
+    ```javascript
+    const fruits = ['사과','딸기']
+    
+    for (let fruit of fruits) {
+        console.log(fruit) 
+    }
+    // 사과, 딸기  
+    
+    만약 for in 으로 돈다면, 인덱스가 출력됨   
+    // 0, 1
+    ```
+
+    ```javascript
+    const movies = [
+      {title: '어바웃 타임'},
+      {title: '굿 윌 헌팅'},
+      {title: '인턴'},
+    ]
+    
+    for (let movie of movies){
+      console.log(`${movie.title}`)
+    }
+    // 어바웃 타임, 굿 윌 헌팅, 인턴
+    ```
+
+    - JS 객체의 value는 점이나 대괄호를 이용하여 key값을 통해 접근 가능   
+      - `for of`는 for문 돌면서 객체를 하나씩 꺼내므로 value에 접근하려면 출력할 때 점 표기법 활용            
+        - `movie.key`          
+
