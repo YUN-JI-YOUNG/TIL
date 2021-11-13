@@ -164,5 +164,204 @@
 
 - computed 속성에서 `return this.$store.getters.'getters 함수명'`  로 호출        
 
-  -> 아래의 Spread Syntax + Component Binding Helper인 `mapGetters` 를 활용하여 `...mapGetters([' ', ' ',])`  처럼 축약 가능     
+  -> 아래의 Spread Syntax + Component Binding Helper인 `mapGetters` 를 활용하여 `...mapGetters([' ', ' ',])`  처럼 축약 가능       
+  
+  </br>   
+
+<hr>     
+
+
+
+`vue add vuex`  로 vue CLI에서 vuex 추가    
+
+##### vuex 로 인한 변화  
+
+- store 디렉토리 생성    
+
+  -> index.js 생성    
+
+  = Vuex 핵심 컨셉들이 작성되는 곳     
+
+<hr>
+
+</br>     
+
+##### 프로젝트 진행      
+
+- JavaScript의 Date 객체      
+  - 1970년 1월 1일 UTC 자정과의 시간 차이를 **밀리초** 단위로 나타내는 정수 값              
+    - UNIX 시간은 1970년 1월 1일 자정과의 시간 차이를 **초** 단위로 나타낸 것       
+  - Date 객체의 중심을 구성하는 시간값은 UTC 기준     
+  - getTime 메서드   
+    - 1970년 1월 1일 UTC 자정으로부터의 경과시간을 밀리초 단위로 반환     
+    - Date 가 기준 시간 이전을 나타낸 경우 음수 값 반환   
+  - 사용 이유   
+    - DB에 일반 숫자 타입 저장 가능하며, key 값으로 활용 가능        
+
+- Vuex Store의 state에 접근   
+  - 템플릿 에선 -> `$store.state`        
+  - 인스턴스 에선 -> `this.$store.state`    
+
+- 작업 흐름    
+  1. 컴포넌트에서 `this.$store.dispatch()` 로 actions 호출   
+
+  2. actions에서 동기+비동기 작업 이후 `context.commit()` /`commit()`로 mutations 호출   
+
+  3. mutations에서 state 조작    
+
+  4. state가 변경되면 해당 state를 공유하는 컴포넌트들에 변경사항 적용        
+
+</br>    
+
+<hr> 
+
+
+
+
+### JavaScript Spread Syntax    
+
+###### 전개구문   
+
+- 배열,문자열처럼 반복가능한(iterable) 문자를 요소(배열 리터럴의 경우)로 확장하여, 0개 이상의 key-value 쌍으로 된 객체로 확장 가능    
+
+- `...` 을 붙여 요소 or 키가 0개 이상의 iterable object를 하나의 object로 간단하게     
+
+  표현하는 법   
+
+- ECMAScript 2015에서 추가되었으며, Spread Syntax의 대상은 반드시 **iterable** 객체     
+
+- 함수, 배열, 객체 에서의 사용법이 모두 다름    
+
+- 객체에서는 **객체 복사(shallow copy)**로 사용   
+
+  - `{...obj1}` ㅣ 그대로 복사   
+
+  - `{...obj1, ...obj2}` | 두 요소를 비교하여, 공통부분은 그대로 쓰고, 동일 키에 대해 다른 부분은 덮어쓰고, 동일 키가 아니라면 추가        
+
+  - `ex`   
+
+    ```vue
+    <!-- 기존 mutations 에서의 todo update --> 
+    
+    UPDATE_TODO_STATUS:function(state, todoItem){
+          ...
+              return{
+                title : todoItem.title,
+                isCompleted :!todo.isCompleted,
+    			date = new Date().getTime()
+              }
+            ...
+    ```
+
+    ```vue
+    <!-- Spread Syntax 적용 -->
+    
+    UPDATE_TODO_STATUS:function(state, todoItem){
+          ...
+              return{
+                ...todo,
+                isCompleted :!todo.isCompleted,
+              }
+            ...
+    ```
+
+    - 반복을 피할 수 있음     
+
+
+
+</br>     
+
+<hr> 
+
+
+
+
+### Component Binding Helper  
+
+- JS Array Helper Method 를 통해 배열 조작을 편하게 하는 것과 유사   
+
+  - 논리적인 코드 자체가 변하는 것이 아니라 쉽게 사용할수 있도록 되어 있는 것!    
+
+- 종류   
+
+  - mapState     
+
+    - Computed와 State 매핑      
+
+    - 해당 컴포넌트 내에서 매핑하고자 하는 이름이 index.js 에 정의해놓은 이름과 동일하면, 배열의 형태로 해당 이름만 문자열로 추가    
+
+    - state를 객체 전개 연산자 (Object Spread Operator) 로 계산하여 추가    
+
+      - mapState는 객체를 반환하고 그 객체를 `...` 연산자로 풀어서 새 object에 매핑    
+
+        기존에 state에 직접 접근하여 값을 가져오던 것을   
+
+        ```vue
+          computed:{
+            todos : function(){
+              return this.$store.state.todos
+            }
+          }
+        ```
+
+        mapState 를 사용하여 가져올 수 있음      
+
+        ```vue
+        computed : {
+          ...mapState([
+            'todos'
+          ])
+        }
+        
+        <!--아래와 같이 쓸수도 있지만, state와 매핑되지 않은 값은 계산 불가-->
+        computed : mapState([
+          'todos',
+        ])
+        ```
+
+  
+
+  - mapGetters      
+
+    - 위와 동일하게 Computed와 Getters 매핑    
+
+  - mapActions     
+
+    - 위와 동일하게 methods와 Actions 매핑    
+
+    - 다만, 전해줘야하는 payload는 props 데이터로 넘겨줘야 함    
+
+      즉, `@click="updateTodoStatus(todo)"`  처럼 인자 필요     
+
+  - mapMutations      
+
+    - 위와 동일하게 진행        
+
+</br>        
+
+<hr>   
+
+
+
+
+### Local Storage      
+
+#### vuex-persistedstate 
+
+- Vuex state를 자동으로 브라우저의 Local Storage 에 저장해주는 라이브러리 중 하나    
+
+  1. 설치    
+
+     `npm i vuex-persistedstate`    
+
+  2. index.js 에서 라이브러리 import   
+
+     `import createPersistedState from 'vuex-persistedstate'`     
+
+  3. 플러그인 작성   
+
+     `plugins:[createPersistedState()],`     
+
+
+  
 
