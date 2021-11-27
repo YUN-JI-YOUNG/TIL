@@ -30,4 +30,8 @@ Today I Learned
 
 
 </br> </br> </br>   
+### Memory   
+---            
+- SQL    
+
 
