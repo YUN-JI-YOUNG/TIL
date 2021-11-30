@@ -28,10 +28,17 @@ Today I Learned
 - 자료 구조   
   - [자료 구조](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data%20structures.md)   
 
-
 </br> </br> </br>   
+
 ### Memory   
 ---            
 - SQL    
+
+</br> </br> </br>   
+
+### Web   
+---     
+- MVC     
+
 
 
