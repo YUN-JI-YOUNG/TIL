@@ -45,26 +45,74 @@ Today I Learned
   - [정렬 & 검색](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Algorithm/sort%20%26%20search.md)     
 
 
-- 자료 구조   
-  - [자료 구조](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data%20structures.md)        
-    - [자료구초 기초](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/data%20structure_basic.md)    
-    - [리스트](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/List.md)   
-    - [큐](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/Queue.md)      
-    - [스택](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/stack.md)    
-    - [트리](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/Tree.md)    
-    - [문자열](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/string.md)       
+- [자료 구조](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data%20structures.md)         
+  - [자료구초 기초](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/data%20structure_basic.md)    
+  - [리스트](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/List.md)   
+  - [큐](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/Queue.md)      
+  - [스택](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/stack.md)       
+  - [트리](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/Tree.md)       
+  - [문자열](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/string.md)       
 
 </br> </br> </br>   
 
-### Memory   
----            
-- SQL    
+### SQLD 공부       
+---                     
+- [데이터 모델링](https://github.com/yjydev/TIL/blob/main/SQLD/Modeling.md)      
 
 </br> </br> </br>   
 
 ### Web   
----     
-- MVC       
+---       
+- [Web 기초](https://github.com/yjydev/TIL/blob/main/Web/Web.md)    
+- [DB](https://github.com/yjydev/TIL/tree/main/Web/DB)    
+  - [관계형 DB 기초](https://github.com/yjydev/TIL/blob/main/Web/DB/RDB_intro.md)     
+  - [SQLite & Django](https://github.com/yjydev/TIL/blob/main/Web/DB/SQLite%20%26%20Django.md)     
+- [Django](https://github.com/yjydev/TIL/tree/main/Web/Django)       
+  - [Django 기초](https://github.com/yjydev/TIL/blob/main/Web/Django/Django_intro.md)    
+  - [Model Relationship](https://github.com/yjydev/TIL/tree/main/Web/Django/Model_relationship)     
+    - [1:N 관계](https://github.com/yjydev/TIL/blob/main/Web/Django/Model_relationship/1:N_relationship.md)      
+    - [Foreign Key](https://github.com/yjydev/TIL/blob/main/Web/Django/Model_relationship/Foreign%20key.md)    
+    - [유저 모델 커스터마이징](https://github.com/yjydev/TIL/blob/main/Web/Django/Model_relationship/Customizing_User_Model.md)        
+    - [M:N 관계](https://github.com/yjydev/TIL/blob/main/Web/Django/Model_relationship/M:N_relationship.md)     
+    - [follow 기능](https://github.com/yjydev/TIL/blob/main/Web/Django/Model_relationship/Follow_function.md)    
+    - [like 기능](https://github.com/yjydev/TIL/blob/main/Web/Django/Model_relationship/Like_function.md)     
+
+  - [CRUD](https://github.com/yjydev/TIL/blob/main/Web/Django/CRUD.md)    
+  - [Django form](https://github.com/yjydev/TIL/blob/main/Web/Django/Django_form.md)     
+  - [Django Model](https://github.com/yjydev/TIL/blob/main/Web/Django/Django_model.md)     
+  - [Django 인증 시스템](https://github.com/yjydev/TIL/blob/main/Web/Django/Django_Authentication.md)     
+  - [Static File(정적 파일) & Media File(미디어 파일)](https://github.com/yjydev/TIL/blob/main/Web/Django/Django_Static%20Files%20%26%20Media%20Files.md)       
+  - [HTTP 요청 다루기](https://github.com/yjydev/TIL/blob/main/Web/Django/Handling_HTTP_requests.md)     
+  - [Django REST API](https://github.com/yjydev/TIL/blob/main/Web/Django/Django%20with%20REST_API.md)     
+  - [Django 일기](https://github.com/yjydev/TIL/blob/main/Web/Django/Django_diary.md)    
+  
+- [JavaScript](https://github.com/yjydev/TIL/tree/main/Web/JavaScript)     
+  - [JavaScript 기초](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/Intro.md)      
+  - [기초 문법](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/basic_grammar.md)     
+  - [객체 & 함수 & 배열](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/object%20%26%20function%20%26%20array.md)    
+  - [이벤트](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/Event.md)      
+  - [DOM & BOM](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/DOM%20%26%20BOM.md)   
+  - [DOM 조작](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/DOM_control.md)    
+  - [AJAX](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/AJAX.md)       
+
+
+- [Vue](https://github.com/yjydev/TIL/tree/main/Web/Vue)    
+  - [Vue 기초](https://github.com/yjydev/TIL/blob/main/Web/Vue/Intro.md)    
+  - [기초 문법](https://github.com/yjydev/TIL/blob/main/Web/Vue/basic_Syntax.md)    
+  - [template 문법](https://github.com/yjydev/TIL/blob/main/Web/Vue/template_syntax.md)    
+  - [Pass props & Emit event](https://github.com/yjydev/TIL/blob/main/Web/Vue/Pass%20Props%20%26%20Emit%20Events.md)    
+  - [Vue CLI](https://github.com/yjydev/TIL/blob/main/Web/Vue/Vue_CLI.md)   
+  - [Vue Router](https://github.com/yjydev/TIL/blob/main/Web/Vue/Vue_router.md)    
+  - [Vuex](https://github.com/yjydev/TIL/blob/main/Web/Vue/vuex.md)            
+  - [CORS](https://github.com/yjydev/TIL/blob/main/Web/Vue/CORS.md)    
+  - [JWT 토큰](https://github.com/yjydev/TIL/blob/main/Web/Vue/JWT.md)       
+
+
+- [CSS 레이아웃](https://github.com/yjydev/TIL/blob/main/Web/CSS_layout.md)    
+- [HTML & CSS](https://github.com/yjydev/TIL/blob/main/Web/HTML%20%26%20CSS.md)
+- [RESTful API](https://github.com/yjydev/TIL/blob/main/Web/RESTful_API.md)     
+
+
 
 </br></br></br>   
 
