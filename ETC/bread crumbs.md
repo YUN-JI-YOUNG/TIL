@@ -7,6 +7,7 @@
 1. MVC 프레임 워크란?
 2. REST API란? 
 3. Java 설치 에러 해결        
+4. Docker 이용해보기    
    
    
    
@@ -80,3 +81,31 @@ OpenJDK Runtime Environment (build 17.0.1+12-39)
 OpenJDK 64-Bit Server VM (build 17.0.1+12-39, mixed mode, sharing)
 ```    
          
+## 4. Docker 
+- 설치 에러   
+   - 알고보니, 리눅스 커널도 안깔려있고, 가상화 설정도 안되어있어서 생긴 오류 였었던 걸로 추정된다.     
+   -> bios 진입하여 advanced 모드에서 cpu configurations 설정을 선택하고, svm 모드를 disabled 에서 enabled로 변경하여 종료 하면 가상화 설정은 완료   
+   -> 그리고 Docker 를 실행해보면, 리눅스 설치 에러메시지가 출력되므로 해당 링크를 타고 가서 다운로드 받아 실행시키고 Docker 를 재실행하면 정상 작동하는 것을 확인  
+- 실행   
+   - Window powershell 에서`docker run hello-world` 명령어로 테스트용 도커 컨테이너를 실행해보면, 처음엔 없다고 나오다가 자동으로 설치되는 것을 확인할 수 있다. 
+
+- 명령어    
+   - `docker run [컨테이너]` : 컨테이너 실행   
+   - `docker run --name=[컨테이너 이름]` : 자동으로 만들어진 이름 대신 지정 이름으로 컨테이너 생성 가능      
+   - `docker run --name myjenkins -d -p 9080:8080 jenkins/jenkins`  : Jenkins를 도커 컨테이너로 실행   
+      - `-d`  : 백그라운드 데몬으로 실행    
+      - `-p`  : 가상 머신(게스트 pc)에서 동작하는 서비스에 docker proxy 서비스가 NAT 기능을 수행해 포트 포워딩을 해주어 실제 머신(호스트 pc) IP로 서비스에 접속 가능하도록 함     
+      - 보통, 컨테이너가 삭제되면 생성된 데이터가 같이 삭제되어, 호스트 oc의 디렉토리에 데이터가 생성되도록 볼륨 마운트 옵션을 추가하여 실행    
+
+      ` -v /your/home:/var/jenkins_home`      
+   - `docker ps` : 컨테이너 조회    
+   - `docker ps -a` 로 정지된 컨테이너까지 조회 가능   
+   - `docker rm [컨테이너 ID or NAME]` : 컨테이너 삭제  
+      - 만약 컨테이너 ID가 abe7a2c9083b 라면, `docker rm abe7a2c` 까지로 일부만 입력해도 정상 삭제 가능    
+         -> 컨테이너 삭제한다고 도커 이미지까지 삭제되는 것은 X   
+         -> 이미지까지 삭제하기 위해선 `docker rmi [이미지 ID or 이미지명:TAG명]` 명령어 필요    
+
+    - TAG 중 최신이라는 뜻인 latest 태그명은 생략 가능      
+
+  - `docker rm -f [컨테이너 ID or NAME]` : 실행중이던 컨테이너도 강제 삭제    
+
