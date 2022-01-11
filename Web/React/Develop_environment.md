@@ -140,4 +140,173 @@
     -> 실행 후, `http://localhost:8080` 링크를 통해 빌드 결과 확인 가능  
 
 
+<hr>  
+<br>   
 
+## React 프로젝트 
+
+1. `npm init -y` : 프로젝트를 기본 설정으로 실행  
+   - `npm init` : 프로젝트 설정 커스텀마이징 가능  
+
+2. `npm install` : package.json에 설정된 의존성 패키지 설치   
+   - `package-lock.json` 파일이 없다면 새로 생성됨    
+
+3. index.html 파일 생성 후, 기본 입력  
+
+   ```html
+   <!DOCTYPE html> 
+   <html>
+       <head>
+           <meta charset="UTF-8">
+           <title>Demo</title>
+       <body>
+           <p>
+               Hello,world
+           </p>
+       </body>
+       </head>
+   </html>
+   ```
+
+4. `npx serve`   
+
+   - serve 패키지가 미설치 상태이므로, npx serve 명령어로 설치 후 실행   
+   - serve 패키지가 설치된 상태라면, `npm run serve` 로 가능  
+
+5. `npm i -D webpack webpack-cli webpack-dev-server`  
+
+   - webpack , webpack-cli, webpack-dev-server 3가지 설치   
+
+   - `-D / --save-dev` : webpack 을 개발환경에서만 사용한다고 의존성 잡아줄 수 있음 
+
+6. `npm i -D eslint`    
+
+   - eslint 설치   
+
+   - `npx eslint` 로 실행 가능  
+
+     - `npx elint --fix .` 로 가이드에 맞지 않는 모든 에러 자동 수정 가능      
+
+   - `npx eslint --init` 로 설정 초기화하여 재설정 가능   
+
+     - `How would you like to use ESLint?` 
+
+       > `To check syntax, find problem, and enforce code style`  
+       >
+       > 강력하게 사용 
+
+     -  `What type of modules does your project use?...`  
+
+         > JavaScript modules (import /export)  
+         >
+         > JS ES6 문법부터 import/export 사용 
+
+     - `Which framework does your project use? ...`  
+
+       > React  
+
+     - `Does your project use TypeScript? ` 
+
+       > n 
+
+     - `Where does your code run? ` 
+
+       > Browser  
+
+     - `How would you like to define a style for your project?` 
+
+       > Use a popluar style guide
+
+       -> Airbnb 스타일이 전통적이고 유용   
+
+     - `What format do you want your config file to be in?` 
+
+       > JavaScript 
+
+       -> JS 가 좀 더 유연하므로 JS를 이용하여 config(환경설정) 진행 예정 
+
+     - `Would you like to install them now with npm?`  
+
+       > yes 
+
+       
+
+<hr> 
+
+### 프로젝트 시작 과정에서의 에러
+
+#### 1. **mode 옵션 세팅 에러** 발생
+
+- `The 'mode' option has not been set, ....`  
+
+  -> `webpack.config.js` 파일 생성  
+
+  ```js
+  const path = require('path');
+  module.exports = {
+      mode: 'development',
+      entry: './src/index.js',
+      output: {
+          filename : 'bundle.js',
+          path:path.resolve(__dirname, 'dist'),
+      },
+      module:{
+          
+      },
+  }
+  ```
+
+
+
+#### 2. **src 폴더 미생성 에러** 발생  
+
+`Module not found: Error: Can't resolve './src' in 'C....'`   
+
+- **:pushpin: 해결 방법** 
+
+  ​	(1) src 폴더 생성 
+
+  ​	(2) index.js 파일 생성 
+
+  ​	(3) 시험삼아 `console.log('hello')` 작성  
+
+  ​	(4) index.html 파일의 `body` 태그 안에 `<script src="main.js"></script>` 작성 
+
+  ​		:arrow_right: main.js 파일은 없지만 알아서 동작    
+
+
+
+#### 3. `Cannot GET /` 에러 발생
+
+- 연결할 리소스가 없어서 발생하는 에러 
+
+  console 창을 보면 `failed to load resource: the server responded with a status of 404 not found` 출력  
+
+  ```html
+  // index.html  
+  
+  <head>
+      <link rel="shortcut icon" href="#">
+      ...
+  </head>
+  ```
+
+  - 위와 같이 index.html 에 숏컷 아이콘을 추가하면 `failed to load resource` 에러는 해결 되지만, `GET http://localhost:8080/ 404 (Not Found)` 발생  
+
+- **:pushpin: 해결 방법** 
+
+  (1) `npm i html-webpack-plugin` 명령어로 html-webpack 플러그인 설치  
+
+  (2) webpack.config.js 에 코드 추가하여 html-webpack 플러그인 추가  
+
+  ```js
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  
+  ...
+  module.exports = {
+      ...
+      plugins: [new HtmlWebpackPlugin({ template: './src/index.html'})],
+  },
+  ```
+
+  - 이 때, template 는 현재 index.html 파일이 있는 위치로 지정해야 한다.
