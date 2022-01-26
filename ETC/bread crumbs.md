@@ -8,6 +8,7 @@
 2. REST API란? 
 3. Java 설치 에러 해결        
 4. Docker 이용해보기    
+5. SpringBoot > JPA    
    
    
    
@@ -81,6 +82,10 @@ OpenJDK Runtime Environment (build 17.0.1+12-39)
 OpenJDK 64-Bit Server VM (build 17.0.1+12-39, mixed mode, sharing)
 ```    
          
+<hr>    
+</br></br>     
+
+
 ## 4. Docker 
 - 설치 에러   
    - 알고보니, 리눅스 커널도 안깔려있고, 가상화 설정도 안되어있어서 생긴 오류 였었던 걸로 추정된다.     
@@ -108,4 +113,113 @@ OpenJDK 64-Bit Server VM (build 17.0.1+12-39, mixed mode, sharing)
     - TAG 중 최신이라는 뜻인 latest 태그명은 생략 가능      
 
   - `docker rm -f [컨테이너 ID or NAME]` : 실행중이던 컨테이너도 강제 삭제    
+
+<hr>    
+</br></br>    
+
+## 5. SpringBoot > JPA     
+
+## JPA 
+
+- 표준 ORM   
+
+  - ORM = 객체 관계 매핑  
+  - 객체 저장 / 관계 맺기 등의 작업 가능   
+
+- 내부적으론 SpringBoot가 hibvernate 프레임워크를 채택하여 사용  
+
+  - Entity (객체) + Repository (메소드)  = Query       
+
+  - Django 에서 models.py 작성하고 migration 하는 것과 비슷    
+
+
+
+### 필수요소
+
+#### @Entity   
+
+- DB의 테이블명         
+
+- DB  설계한 것을 토대로 Entity 구현     
+
+- Entity 구현 전 사전 작업 필요       
+
+  - DB 테이블 등이 설계되는 DDL 작업  
+
+    ```java
+    spring.jpa.generate-ddl = true
+    spring.jpa.hibernate.ddl-auto = update
+    ```
+
+    
+
+  - Query가 수행되는 것을 log로 보는 옵션 설정    
+
+    - resources > application.properties 파일     
+
+    ```java
+    // 수행되는 쿼리를 로그로 볼 수 있음  
+    spring.jpa.show-sql = true
+    spring.jpa.properties.hibernate.format_sql = true
+        
+    // 바인딩 되는 값을 로그로 볼 수 있음 
+    logging.level.org.hibernate.type.descriptor.sql.BasicBinder = trace
+    ```
+
+    - 디버깅 편리   
+
+- Entity 구현 Tip   
+
+  - `@Column(columnDefinition = "INT UNSIGNED")` 처럼 타입을 unsigned 로 설정하면 
+
+    용량은 줄어들지만 데이터는 2배로 넣을 수 있음   
+
+- Relationship 관계 정의할 때 고려할 사항  
+
+  - 다중성   
+    - 1:N  `@OneToMany` 
+    - N:1 `@ManyToOne`  
+    - 1:1   `@OneToOne`
+    - N:M  `@ManyToMany`  
+  - 방향성  
+    - 단방향 
+    - 양방향   
+      - 양방향은 JPA에서는 지양   
+  - 양방향일 경우, 연관관계의 주인     
+    - `@OneToMany (mappedBy= "boardFk")`  
+      - `@JoinColumn(name="boardFk")`  
+    - 어디서 컨트롤할 수 있는가     
+    - FK 키 관리 주인 설정   
+    - `Many` 쪽이 주인이며, `@ManyToOne` 은 항상 주인이므로 `mappedBy` 속성 X      
+
+
+
+##### DB 설계  
+
+- Model 작성이 어려울땐 육하원칙을 따라서!     
+
+| 종류   | PK   | FK         | 누가   | 언제     | 어디서 | 무엇을    | 어떻게    | 왜   |
+| ------ | ---- | ---------- | ------ | -------- | ------ | --------- | --------- | ---- |
+| 게시판 | UID  |            | 작성자 | 작성일자 | IP주소 | 제목/내용 | 웹/모바일 | NA   |
+| 댓글   | UID  | 게시판_UID | 작성자 | 작성일자 | IP주소 | 제목/내용 | 웹/모바일 | NA   |
+
+- 1 : N 관계이므로 `게시판 PK == 댓글 FK`      
+
+
+
+#### JpaRepository   
+
+- 원하는 것을 명령하는, 즉, Query 가 되는 Respository      
+
+  | CRUD   | 메소드명                                    |
+  | ------ | ------------------------------------------- |
+  | Read   | find*** 로 시작!  (  `ex`.  findById() ** ) |
+  | Delete | delete*** 로 시작!                          |
+  | Create | save                                        |
+  | Update | 객체 조회 > 값 변경 > save                  |
+
+  - Create 로 객체 생성할 때 Tip  
+    - `@Builder` 사용       
+      - lombok *annotation*    
+      - 순서를 신경쓰지 않고 DB 적용 가능   
 
