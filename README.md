@@ -124,6 +124,8 @@ Today I Learned
   - [Develop_environment](https://github.com/yjydev/TIL/blob/main/Web/React/Develop_environment.md)       
   - [Node & Webpack](https://github.com/yjydev/TIL/blob/main/Web/React/Node%20%26%20Webpack.md#node)      
   - [React](https://github.com/yjydev/TIL/blob/main/Web/React/React.md#react)    
+  - [Flux](https://github.com/yjydev/TIL/blob/main/Web/React/Flux.md)      
+  - [Redux](https://github.com/yjydev/TIL/blob/main/Web/React/Redux.md)     
 
 
 
