@@ -126,7 +126,8 @@ Today I Learned
   - [React](https://github.com/yjydev/TIL/blob/main/Web/React/React.md#react)    
   - [Flux](https://github.com/yjydev/TIL/blob/main/Web/React/Flux.md)      
   - [Redux](https://github.com/yjydev/TIL/blob/main/Web/React/Redux.md)     
-
+  - [Redux 활용](https://github.com/yjydev/TIL/blob/main/Web/React/Redux_uses.md)     
+  - [React Test & TDD](https://github.com/yjydev/TIL/blob/main/Web/React/React_Test%20%26%20TDD.md)       
 
 
 
