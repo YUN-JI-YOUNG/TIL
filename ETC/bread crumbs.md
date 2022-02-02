@@ -10,6 +10,7 @@
 4. Docker 이용해보기    
 5. SpringBoot > JPA    
 6. 데이터 크롤링     
+7. Jenkins Error (jenkins.model.InvalidBuildsDir)     
    
    
    
@@ -275,5 +276,49 @@ OpenJDK 64-Bit Server VM (build 17.0.1+12-39, mixed mode, sharing)
   ex) 옥션, 다나와
 + 비상업적인 용도라 하더라도 원작자에게 불이익을 주면 불법
 + 크롤러를 활용해 고의적으로 Abusing 하는경우 불법
-  ex) 네이버 검색순위 조작, 음원 순위 조작
+  ex) 네이버 검색순위 조작, 음원 순위 조작    
+  
+  
+  
+<hr>  
+<br><br>    
+
+## 7. Jenkins Error (jenkins.model.InvalidBuildsDir)     
+아래와 같은 에러가 발생한다면, 
+
+```jsx
+jenkins.model.InvalidBuildsDir: ${ITEM_ROOTDIR}/builds does not exist and probably cannot be created
+	at jenkins.model.Jenkins.checkRawBuildsDir(Jenkins.java:3354)
+	at jenkins.model.Jenkins.loadConfig(Jenkins.java:3276)
+Caused: java.io.IOException
+	at jenkins.model.Jenkins.loadConfig(Jenkins.java:3279)
+	at jenkins.model.Jenkins.access$1200(Jenkins.java:336)
+	at jenkins.model.Jenkins$12.run(Jenkins.java:3374)
+	at org.jvnet.hudson.reactor.TaskGraphBuilder$TaskImpl.run(TaskGraphBuilder.java:169)
+	at org.jvnet.hudson.reactor.Reactor.runTask(Reactor.java:296)
+	at jenkins.model.Jenkins$5.runTask(Jenkins.java:1151)
+	at org.jvnet.hudson.reactor.Reactor$2.run(Reactor.java:214)
+	at org.jvnet.hudson.reactor.Reactor$Node.run(Reactor.java:117)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:68)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused: org.jvnet.hudson.reactor.ReactorException
+	at org.jvnet.hudson.reactor.Reactor.execute(Reactor.java:282)
+	at jenkins.InitReactorRunner.run(InitReactorRunner.java:49)
+	at jenkins.model.Jenkins.executeReactor(Jenkins.java:1184)
+	at jenkins.model.Jenkins.<init>(Jenkins.java:976)
+	at hudson.model.Hudson.<init>(Hudson.java:85)
+	at hudson.model.Hudson.<init>(Hudson.java:81)
+	at hudson.WebAppMain$3.run(WebAppMain.java:298)
+Caused: hudson.util.HudsonFailedToLoad
+	at hudson.WebAppMain$3.run(WebAppMain.java:315)
+```
+
+#### 해결 방법
+
+- jenkins 디렉토리의 소유권/권한 확인 필요
+    - `cd var/lib/jenkins` 로 이동하여 `ll` 로 소유권 확인
+        - 모두 `jenkins` 가 맞는데 에러가 났다면, `service jenkins stop` 로 중지하고 `service jenkins start` 로 실행
+        - `jenkins` 가 아니라면, `sudo chown -R jenkins:jenkins /var/lib/jenkins` 로 소유권 변경
 
