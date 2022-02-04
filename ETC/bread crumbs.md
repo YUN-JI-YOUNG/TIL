@@ -11,6 +11,7 @@
 5. SpringBoot > JPA    
 6. 데이터 크롤링     
 7. Jenkins Error (jenkins.model.InvalidBuildsDir)     
+8. EC2 서버 세팅   
    
    
    
@@ -322,3 +323,60 @@ Caused: hudson.util.HudsonFailedToLoad
         - 모두 `jenkins` 가 맞는데 에러가 났다면, `service jenkins stop` 로 중지하고 `service jenkins start` 로 실행
         - `jenkins` 가 아니라면, `sudo chown -R jenkins:jenkins /var/lib/jenkins` 로 소유권 변경
 
+<hr>  
+<br><br>  
+
+## 8. EC2 서버 세팅     
+
+#### 기본 세팅 로드맵
+
+- EC2 우분투 서버 접속 > DB 구축 > 웹 서버 설치 > 프록시 서버 설치 > 배포 
+
+
+
+- 방화벽 22번 포트 => ssh 기본 포트  
+
+    - 원격 시스템에서 명령을 실행하도록 하는 포트    
+
+    => 닫고 종료하면 더이상 접근 불가   
+
+
+
+- 구현목적
+- 진행 방법 => 무분별한 시도 방지 가능 
+- 오류 발생하면 해당 오류 기록 
+
+
+
+- MySQL 많이 사용하는듯  
+
+    => MySQL Workbench 에서 커넥션 세팅할 때, username과 password 변경 필수! 
+
+    - 변경안하면 비트코인 달라는 README 남겨질것.. 매 기수마다 있었다.
+
+
+
+- 서버 실습 
+  - mobaxterm  
+    - GUI 가 돋보이고, 명령어 입력도 가능  
+    - 세션 url 엔 제공받은 pem 의 도메인을 입력하는데 우분투 명령어를 사용하므로, `ubuntu@도메인 ` 처럼 작성해야함  
+
+    - mobaxterm 로 우분투 서버접속 
+
+- MySQL Workbench에서 커넥션 세팅하여 DB 세팅 
+
+- 웹 서버 설치 
+
+- nginx 기본 설정 
+
+- front 빌드 파일 설정 
+
+  `sudo vi /etc/nginx/site-available/default/`   
+
+  => 디렉토리 설정
+
+  => `sudo service niginx restart`   
+
+- `java -jar [jar 파일명]`  => 하지만 이렇게하면 터미널 끄면 백 배포가 중지됨  
+
+  => `nohup java -ajr [jar 파일명]&` => 이렇게해야 백그라운드 실행     
