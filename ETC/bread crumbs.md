@@ -388,6 +388,26 @@ Caused: hudson.util.HudsonFailedToLoad
 ## 9. React Webpack Build Error    
 - Webpack 4.X 버전부터 발생한 에러    
 - 로컬 이미지 등의 static 파일들을 사용할 때, public 폴더를 생성하여 그 안에 모아두는데 img 태그의 src 속성에 상대 경로로 작성하면 추후 빌드 시 이미지 로드 실패    
-- base64 로 인코딩된 문자열로 넣어야함   
+- base64 로 인코딩된 문자열로 넣어야함    
+
+### 해결 방법      
+- url-loader 사용   
+    - `npm install url-loader` 로 설치한 후, webpack.config.js 설정파일에 추가      
+
+    ```javascript
+    	...    
+          {
+        test: /\.(png|svg|jpe?g|gif|ico|woff|woff2|eot|ttf)(\?[a-z0-9=.]+)?$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+          }
+        }],
+      },
+      ...     
+    ```    
+    - 이후엔 `import BackImg from '../../../public/laundry/1.png" ` 처럼 해당 경로에서 이미지 파일을 컴포넌트처럼 불러와서 `<img src={BackImg}>` src 속성에 추가    
+
 
 
