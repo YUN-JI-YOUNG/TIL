@@ -12,6 +12,7 @@
 6. 데이터 크롤링     
 7. Jenkins Error (jenkins.model.InvalidBuildsDir)     
 8. EC2 서버 세팅   
+9. React Webpack Build 에러    
    
    
    
@@ -380,3 +381,13 @@ Caused: hudson.util.HudsonFailedToLoad
 - `java -jar [jar 파일명]`  => 하지만 이렇게하면 터미널 끄면 백 배포가 중지됨  
 
   => `nohup java -ajr [jar 파일명]&` => 이렇게해야 백그라운드 실행     
+
+<hr>  
+<br><br>  
+
+## 9. React Webpack Build Error    
+- Webpack 4.X 버전부터 발생한 에러    
+- 로컬 이미지 등의 static 파일들을 사용할 때, public 폴더를 생성하여 그 안에 모아두는데 img 태그의 src 속성에 상대 경로로 작성하면 추후 빌드 시 이미지 로드 실패    
+- base64 로 인코딩된 문자열로 넣어야함   
+
+
