@@ -1,4 +1,4 @@
-### Common Item Counting for Every Pair of Sets 알고리즘      
+## Common Item Counting for Every Pair of Sets 알고리즘      
 
 #### Self Join        
 
@@ -81,4 +81,35 @@
     - 셔플 페이즈  
       - 동일 key에 대해 Value List 생성   
     - Reduce    
-      - 생성된 Value List 의 합계를 Value로 출력        
+      - 생성된 Value List 의 합계를 Value로 출력          
+
+
+## Common Item Counting for Every Pair of Sets 코딩     
+
+- CommonItemCount.template.java 파일을 CommonItemCount.java 파일로 복사하여 코드 작성          
+
+  - Inverted Index 를 이용하여 모든 튜플 간 중복 item 개수 카운트하는 알고리즘      
+
+  - 셀프 조인이므로 테이블 이름은 데이터에 없음     
+
+    +) 셀프 조인이므로 레코드 id 는 작은 것이 먼저 나와야 함 (중복 방지 겸)          
+
+- `Driver.java` 파일에 등록 필요   
+
+  - pgd.addClass("itemcount", CommonItemCount.class, "A map/reduce program that performs the common item count using the inverted index for a single input file");          
+
+- 이후 Project 디렉토리에서 `ant` 명령어로 컴파일      
+
+- `hdfs dfs -mkdir itemcount_test` 로 데이터를 위한 폴더 생성   
+
+- `hdfs dfs -put data/setjoin-data.txt itemcount_test`  로 데이터 복사    
+
+- `hadoop jar ssafy.jar itemcount itemcount_test itemcount_test_out1 itemcount_test_out2` 로 실행      
+
+  - 각 페이즈마다 출력 디렉토리 따로 설정     
+
+- `hdfs dfs -cat itemcount_test_out2/part-r-00000`     
+
+- `hdfs dfs -cat itemcount_test_out2/part-r-00001`           
+
+
