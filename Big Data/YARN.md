@@ -1,4 +1,4 @@
-### YARN 과 MapReduce
+## YARN 과 MapReduce
 
 - Hadoop이 처음 나왔을 땐, Hadoop 이라는 `하나의 프로젝트` 내에 `HDFS + MapReduece`라는 자바의 패키지로만 분리되어 있었음
 
@@ -18,7 +18,7 @@
 
 
 
-### `기존 Map Reduce 구성`    
+## `기존 Map Reduce 구성`    
 
 - MapReduce라는 프로그램 모델을 추상화시킨 라이브러리    
   - Mapper, Reducer 등 클래스로 별도 main() 메소드로 제공되는 클래스는 없음   
@@ -32,7 +32,7 @@
 
 
 
-### `기존 Map Reduce 프로그램 실행 절차`
+## `기존 Map Reduce 프로그램 실행 절차`
 
 1. MapReduce 클러스터 실행
 
@@ -72,7 +72,7 @@
 
 
 
-### 기존 MapReduce 문제점
+## 기존 MapReduce 문제점
 
 - YARN 이전엔 위의 과정이 MapReduce 클러스터 내에서 `모두 수행`됨
 
@@ -86,7 +86,7 @@
 
 
 
-### YARN 구성
+## YARN 구성
 
 - 핵심 구성요소 : `ResourceManager`, `NodeManager`
 
@@ -160,7 +160,7 @@
 
 
 
-### YARN을 이용한 클러스터 자원 공유
+## YARN을 이용한 클러스터 자원 공유
 
 `ex` 100대의 서버 ⇒ 1개의 MapReduce 작업 실행
 
@@ -192,10 +192,32 @@
 
 
 
-### YARN의 스케줄러
+## YARN의 스케줄러
 
 - FIFO를 사용할 경우 위의 시나리오는 제한적으로 얻을 수 있고, Capacity, Fair 를 사용하면 모두 얻을 수 있다.
 - 종류    
   1. FIFO (Default)
   2. Capacity
-  3. Fair
+  3. Fair    
+
+
+<hr>    
+</br>     
+
+## 궁금점
+
+1. 카프카는 왜 주키퍼와 같이 쓰는가?  
+    - 참고            
+        [티스토리](https://qkqhxla1.tistory.com/1118), [클라우드 카프카](https://www.cloudkarafka.com/blog/cloudkarafka-what-is-zookeeper.html)          
+    - Zookeeper를 범용 분산 프로세스 조정 시스템으로 활용하기로 선택했었다.       
+      따라서 Kafka, Storm, HBase, SolrCloud는 모두 Zookeeper를 사용하여 관리 및 조정을 지원한다.         
+    - 카프카는 애초에 클러스터 배포용으로 설계된거라서 주키퍼 없이 standalone으로 사용하면 애초에 용도와 맞지가 않다.      
+      싱글 노드로 카프카를 사용할거면 이보다 더 다른 좋은 솔루션이 있을것같다.     
+      그리고 스파크가 standalone이면 하둡 없이도 사용가능한 반면 카프카는 반드시 주키퍼가 필요하다.         
+        
+2. Yarn vs Zookeeper  
+    - yarn은 새로운 map reduce 데몬이고, 하둡 클러스터에서 잡들을 처리한다.     
+    - zookeeper는 분산 환경 시스템을 조율하는 역할을 하며 yarn을 비롯해 많은 데몬들이 사용        
+      -> 넓게 분산 처리 환경 시스템을 조율하는게 zookeeper,  
+      yarn은 그중에서도 map reduce잡을 어떻게 더 효율적으로 처리하는 엔진같은 개념인것같다.       
+
