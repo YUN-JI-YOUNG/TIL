@@ -162,7 +162,9 @@ Today I Learned
 - [swea 문제풀이](https://github.com/yjydev/TIL/tree/main/swea)      
 
 </br></br></br>     
+
+
+
+### ETC    
 ---    
-
-
-### [ETC](https://github.com/yjydev/TIL/tree/main/ETC)
+- [ETC](https://github.com/yjydev/TIL/tree/main/ETC)
