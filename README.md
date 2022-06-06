@@ -167,4 +167,6 @@ Today I Learned
 
 ### ETC    
 ---    
-- [ETC](https://github.com/yjydev/TIL/tree/main/ETC)
+- [TIP](https://github.com/yjydev/TIL/blob/main/ETC/Tip.md)     
+- [bread_crumbs](https://github.com/yjydev/TIL/blob/main/ETC/bread%20crumbs.md)      
+- [bread_crumbs_cs](https://github.com/yjydev/TIL/blob/main/ETC/bread%20crumb_cs.md)      
