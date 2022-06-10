@@ -6,7 +6,7 @@ Today I Learned
 ### Big Data     
 
 ---     
-- 알고리즘        
+- 알고리즘(Algorithm)             
   - [All Pair Partition](https://github.com/yjydev/TIL/blob/main/Big%20Data/All%20Pair%20Partition.md)
   - [Common Item Counting for Every Pair of Sets](https://github.com/yjydev/TIL/blob/main/Big%20Data/Common%20Item%20Counting%20for%20Every%20Pair%20of%20Sets.md)      
   - [Top-K Closest Point Search](https://github.com/yjydev/TIL/blob/main/Big%20Data/Top-K%20Closest%20Point%20Search.md)       
