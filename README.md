@@ -79,7 +79,7 @@ Today I Learned
 
 </br> </br> </br>   
 
-### SQLD 자격증 공부            
+### SQLD 자격증 공부(~ing)           
 ---                     
 - [데이터 모델링](https://github.com/yjydev/TIL/blob/main/SQLD/Modeling.md)      
 
