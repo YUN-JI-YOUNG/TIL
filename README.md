@@ -51,7 +51,8 @@ Today I Learned
 - 메모리   
   - [메모리](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Memory.md)     
 
-- [알고리즘](https://github.com/yjydev/TIL/tree/main/Computer%20Science/Algorithm)         
+- 알고리즘     
+  - [알고리즘](https://github.com/yjydev/TIL/tree/main/Computer%20Science/Algorithm)         
   - [알고리즘 기초](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Algorithm/Algorithm_basic.md)     
   - [분할정복](https://github.com/yjydev/TIL/tree/main/Computer%20Science/Algorithm/Divide%20and%20conquer)        
     - [분할정복 알고리즘 기초](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Algorithm/Divide%20and%20conquer/%EB%B6%84%ED%95%A0%EC%A0%95%EB%B3%B5_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md)   
@@ -72,7 +73,8 @@ Today I Learned
   - [정렬 & 검색](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Algorithm/sort%20%26%20search.md)     
 
 
-- [자료 구조](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data%20structures.md)         
+- 자료 구조     
+  - [자료 구조](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data%20structures.md)         
   - [자료구초 기초](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/data%20structure_basic.md)    
   - [리스트](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/List.md)   
   - [큐](https://github.com/yjydev/TIL/blob/main/Computer%20Science/Data_structure/Queue.md)      
