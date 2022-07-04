@@ -86,17 +86,21 @@ Today I Learned
 
 ### SQLD 자격증 공부(~ing)           
 ---                     
-- [데이터 모델링](https://github.com/yjydev/TIL/blob/main/SQLD/Modeling.md)      
+- 데이터 모델링     
+  - [데이터 모델링](https://github.com/yjydev/TIL/blob/main/SQLD/Modeling.md)      
 
 </br> </br> </br>   
 
 ### Web   
 ---       
-- [Web 기초](https://github.com/yjydev/TIL/blob/main/Web/Web.md)    
-- [DB](https://github.com/yjydev/TIL/tree/main/Web/DB)    
+- Web     
+  - [Web 기초](https://github.com/yjydev/TIL/blob/main/Web/Web.md)    
+- Database      
+  - [DB](https://github.com/yjydev/TIL/tree/main/Web/DB)    
   - [관계형 DB 기초](https://github.com/yjydev/TIL/blob/main/Web/DB/RDB_intro.md)     
   - [SQLite & Django](https://github.com/yjydev/TIL/blob/main/Web/DB/SQLite%20%26%20Django.md)     
-- [Django](https://github.com/yjydev/TIL/tree/main/Web/Django)       
+- Django       
+  - [Django](https://github.com/yjydev/TIL/tree/main/Web/Django)       
   - [Django 기초](https://github.com/yjydev/TIL/blob/main/Web/Django/Django_intro.md)    
   - [Model Relationship](https://github.com/yjydev/TIL/tree/main/Web/Django/Model_relationship)     
     - [1:N 관계](https://github.com/yjydev/TIL/blob/main/Web/Django/Model_relationship/1:N_relationship.md)      
