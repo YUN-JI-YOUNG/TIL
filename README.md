@@ -119,7 +119,8 @@ Today I Learned
   - [Django REST API](https://github.com/yjydev/TIL/blob/main/Web/Django/Django%20with%20REST_API.md)     
   - [Django 일기](https://github.com/yjydev/TIL/blob/main/Web/Django/Django_diary.md)    
   
-- [JavaScript](https://github.com/yjydev/TIL/tree/main/Web/JavaScript)     
+- JavaScript     
+  - [JavaScript](https://github.com/yjydev/TIL/tree/main/Web/JavaScript)     
   - [JavaScript 기초](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/Intro.md)      
   - [기초 문법](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/basic_grammar.md)     
   - [객체 & 함수 & 배열](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/object%20%26%20function%20%26%20array.md)    
@@ -129,7 +130,8 @@ Today I Learned
   - [AJAX](https://github.com/yjydev/TIL/blob/main/Web/JavaScript/AJAX.md)       
 
 
-- [Vue](https://github.com/yjydev/TIL/tree/main/Web/Vue)    
+- Vue      
+  - [Vue](https://github.com/yjydev/TIL/tree/main/Web/Vue)    
   - [Vue 기초](https://github.com/yjydev/TIL/blob/main/Web/Vue/Intro.md)    
   - [기초 문법](https://github.com/yjydev/TIL/blob/main/Web/Vue/basic_Syntax.md)    
   - [template 문법](https://github.com/yjydev/TIL/blob/main/Web/Vue/template_syntax.md)    
@@ -141,11 +143,14 @@ Today I Learned
   - [JWT 토큰](https://github.com/yjydev/TIL/blob/main/Web/Vue/JWT.md)       
 
 
-- [CSS 레이아웃](https://github.com/yjydev/TIL/blob/main/Web/CSS_layout.md)    
-- [HTML & CSS](https://github.com/yjydev/TIL/blob/main/Web/HTML%20%26%20CSS.md)
-- [RESTful API](https://github.com/yjydev/TIL/blob/main/Web/RESTful_API.md)       
+- CSS      
+  - [CSS 레이아웃](https://github.com/yjydev/TIL/blob/main/Web/CSS_layout.md)    
+  - [HTML & CSS](https://github.com/yjydev/TIL/blob/main/Web/HTML%20%26%20CSS.md)
+- REST API        
+  - [RESTful API](https://github.com/yjydev/TIL/blob/main/Web/RESTful_API.md)       
 
-- [React](https://github.com/yjydev/TIL/tree/main/Web/React)     
+- React     
+  - [React](https://github.com/yjydev/TIL/tree/main/Web/React)     
   - [Babel & JSX](https://github.com/yjydev/TIL/blob/main/Web/React/Babel%20%26%20JSX.md)     
   - [Develop_environment](https://github.com/yjydev/TIL/blob/main/Web/React/Develop_environment.md)       
   - [Node & Webpack](https://github.com/yjydev/TIL/blob/main/Web/React/Node%20%26%20Webpack.md#node)      
