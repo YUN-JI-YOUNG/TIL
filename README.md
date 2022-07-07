@@ -166,20 +166,23 @@ Today I Learned
 
 ### git    
 ---    
-- [깃 브랜치](https://github.com/yjydev/TIL/blob/main/git/git_branch.md)        
+- git branch        
+  -  [깃 브랜치](https://github.com/yjydev/TIL/blob/main/git/git_branch.md)        
 
 
 </br></br></br>     
 
 ### Python    
 ---    
-- [파이썬 이해](https://github.com/yjydev/TIL/blob/main/python/python%20%EC%9D%B4%ED%95%B4.md)    
-- [기초 문법](https://github.com/yjydev/TIL/blob/main/python/basic_grammar.md)    
-- [함수](https://github.com/yjydev/TIL/blob/main/python/function.md)     
-- [모듈](https://github.com/yjydev/TIL/blob/main/python/Module.md)    
-- [메서드](https://github.com/yjydev/TIL/blob/main/python/method.md)     
-- [객체 & OOP](https://github.com/yjydev/TIL/blob/main/python/object%20%26%20OOP.md)     
-- [예외 처리](https://github.com/yjydev/TIL/blob/main/python/syntactic%20error.md)     
+- 파이썬     
+  - [파이썬 이해](https://github.com/yjydev/TIL/blob/main/python/python%20%EC%9D%B4%ED%95%B4.md)    
+  - [기초 문법](https://github.com/yjydev/TIL/blob/main/python/basic_grammar.md)    
+- 함수 & 문법            
+  - [함수](https://github.com/yjydev/TIL/blob/main/python/function.md)     
+  - [모듈](https://github.com/yjydev/TIL/blob/main/python/Module.md)    
+  - [메서드](https://github.com/yjydev/TIL/blob/main/python/method.md)     
+  - [객체 & OOP](https://github.com/yjydev/TIL/blob/main/python/object%20%26%20OOP.md)     
+  - [예외 처리](https://github.com/yjydev/TIL/blob/main/python/syntactic%20error.md)     
 
 </br></br></br>     
 
