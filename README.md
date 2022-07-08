@@ -188,7 +188,8 @@ Today I Learned
 
 ### swea    
 ---    
-- [swea 문제풀이](https://github.com/yjydev/TIL/tree/main/swea)      
+- swea      
+  - [swea 문제풀이](https://github.com/yjydev/TIL/tree/main/swea)      
 
 </br></br></br>     
 
@@ -196,6 +197,7 @@ Today I Learned
 
 ### ETC    
 ---    
-- [TIP](https://github.com/yjydev/TIL/blob/main/ETC/Tip.md)     
+- tip    
+  - [TIP](https://github.com/yjydev/TIL/blob/main/ETC/Tip.md)     
 - [bread_crumbs](https://github.com/yjydev/TIL/blob/main/ETC/bread%20crumbs.md)      
 - [bread_crumbs_cs](https://github.com/yjydev/TIL/blob/main/ETC/bread%20crumb_cs.md)      
