@@ -199,5 +199,7 @@ Today I Learned
 ---    
 - tip    
   - [TIP](https://github.com/yjydev/TIL/blob/main/ETC/Tip.md)     
-- [bread_crumbs](https://github.com/yjydev/TIL/blob/main/ETC/bread%20crumbs.md)      
-- [bread_crumbs_cs](https://github.com/yjydev/TIL/blob/main/ETC/bread%20crumb_cs.md)      
+- bread crumbs        
+  - [bread_crumbs](https://github.com/yjydev/TIL/blob/main/ETC/bread%20crumbs.md)      
+- bread crumbs [cs]     
+  - [bread_crumbs_cs](https://github.com/yjydev/TIL/blob/main/ETC/bread%20crumb_cs.md)      
