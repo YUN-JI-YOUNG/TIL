@@ -1,10 +1,9 @@
-# TIL
-Today I Learned   
------      
-그때그때 공부한 내용들을 정리하고 저장하는 저장소    
-</br>     
------        
+# TIL      
+#### Today I Learned       
+##### 그때그때 공부한 내용들을 정리하고 저장하는 저장소                        
 </br>      
+
+
 
 ### Big Data     
 
